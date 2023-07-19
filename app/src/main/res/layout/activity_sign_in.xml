@@ -24,42 +24,51 @@
 
     <TextView
         android:id="@+id/textView4"
-        android:layout_width="match_parent"
-        android:layout_height="35dp"
+        android:layout_width="349dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginBottom="10dp"
         android:text="Email:"
-        android:layout_marginBottom="20dp"/>
+        android:textStyle="bold" />
 
     <EditText
         android:id="@+id/editTextText"
-        android:layout_width="match_parent"
+        android:layout_width="360dp"
         android:layout_height="48dp"
-
+        android:layout_gravity="center"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/signin_edit"
         android:ems="10"
-        android:hint="abc@gmail.com"
-        android:inputType="text"
-        android:layout_marginBottom="20dp" />
+        android:hint="    abc@gmail.com"
+        android:inputType="text" />
 
     <TextView
         android:id="@+id/textView13"
-        android:layout_width="match_parent"
-        android:layout_height="33dp"
+        android:layout_width="360dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
         android:text="Mật khẩu:"
-
-        />
+        android:textStyle="bold" />
 
     <EditText
         android:id="@+id/editTextText2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="360dp"
+        android:layout_height="48dp"
+        android:layout_gravity="center"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/signin_edit"
         android:ems="10"
-        android:inputType="text"
-        android:layout_marginBottom="20dp"/>
+
+        />
 
     <Button
         android:id="@+id/button3"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="187dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:layout_marginBottom="20dp"
         android:text="Đăng nhập"
-        android:layout_marginBottom="20dp"/>
+        android:backgroundTint="@color/xanh_la_cay_dam"
+        />
 
 </LinearLayout>
