@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "104221529230",
+    "project_id": "aeonmart-f27db",
+    "storage_bucket": "aeonmart-f27db.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:104221529230:android:bf47d2ba2245bf6d2ee5df",
+        "android_client_info": {
+          "package_name": "com.example.aeonmart_demo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "104221529230-oq4hg4qi25q1h7dbdulh67kpvg67583h.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB7I_0LTEJfnVPseCCq3plKdY3Gml3Gv6o"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "104221529230-oq4hg4qi25q1h7dbdulh67kpvg67583h.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
