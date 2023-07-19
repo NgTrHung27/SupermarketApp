@@ -159,7 +159,6 @@
                 android:text="Đăng xuất"
                 android:textSize="20dp"
                 android:textStyle="bold"/>
-
         </LinearLayout>
     </LinearLayout>
 
