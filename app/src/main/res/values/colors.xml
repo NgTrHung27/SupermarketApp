@@ -2,4 +2,10 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="xanh_la_cay_nhat">#00C56A</color>
+    <color name="vang_nhat">#DEDFDA </color>
+    <color name="xanh_nuoc_bien_nhat">#00BBBD</color>
+    <color name="xanh_la_cay_dam">#387A5C</color>
+    <color name="xanh_nuoc_bien_dam">#013832</color>
+
 </resources>
