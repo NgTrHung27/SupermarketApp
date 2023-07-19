@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activity.IntroActivity">
+
+    <TextView
+        android:id="@+id/introTVChaoMung2"
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:layout_marginTop="16dp"
+        android:shadowColor="#7E777777"
+        android:shadowDx="2"
+        android:shadowDy="10"
+        android:shadowRadius="5"
+        android:text="Thế giới mua sắm hàng đàu VIệt Nam"
+        android:textAlignment="center"
+        android:textSize="18sp"
+        android:textStyle="bold|italic"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/introCVLogo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="113dp"
+        app:cardCornerRadius="50dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:src="@drawable/logoaeon"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:id="@+id/introTVChaoMung"
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:layout_marginTop="35dp"
+        android:shadowColor="#7E777777"
+        android:shadowDx="2"
+        android:shadowDy="10"
+        android:shadowRadius="5"
+        android:text="Chào mừng quý khách đến với"
+        android:textAlignment="center"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/introCVLogo" />
+
+    <TextView
+        android:id="@+id/loginTVAeonMart"
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:shadowColor="#9F777777"
+        android:shadowDx="2"
+        android:shadowDy="10"
+        android:shadowRadius="5"
+        android:text="AEON Mall"
+        android:textAlignment="center"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/introTVChaoMung" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="264dp"
+        android:layout_marginTop="8dp"
+        android:src="@drawable/introimage"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/loginTVAeonMart" />
+    <Button
+        android:id="@+id/introLoginButton"
+        android:layout_width="210dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="24dp"
+        android:text="Button"
+        android:background="@drawable/custombutton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/introTVChaoMung2" />
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -16,7 +16,7 @@
             android:name=".Activity.Profile"
             android:exported="false" />
         <activity
-            android:name=".Activity.LoginActivity"
+            android:name=".Activity.IntroActivity"
             android:exported="false" />
         <activity
             android:name=".ui.login.LoginActivity"
