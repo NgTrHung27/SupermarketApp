@@ -15,9 +15,10 @@
         android:shadowDx="2"
         android:shadowDy="10"
         android:shadowRadius="5"
-        android:text="Thế giới mua sắm hàng đàu VIệt Nam"
+        android:text="Thế giới mua sắm hàng đàu Việt Nam"
         android:textAlignment="center"
         android:textSize="18sp"
+        android:textColor="@color/black"
         android:textStyle="bold|italic"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -56,6 +57,7 @@
         android:textAlignment="center"
         android:textSize="25sp"
         android:textStyle="bold"
+        android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/introCVLogo" />
@@ -71,6 +73,7 @@
         android:text="AEON Mall"
         android:textAlignment="center"
         android:textSize="25sp"
+        android:textColor="@color/black"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -89,12 +92,51 @@
     <Button
         android:id="@+id/introLoginButton"
         android:layout_width="210dp"
-        android:layout_height="40dp"
+        android:layout_height="50dp"
         android:layout_marginTop="24dp"
-        android:text="Button"
-        android:background="@drawable/custombutton"
+        android:text="ĐĂNG NHẬP"
+        android:textSize="17sp"
+        android:backgroundTint="@color/xanh_la_cay_dam"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/introTVChaoMung2" />
+        app:layout_constraintTop_toBottomOf="@+id/introTVChaoMung2"/>
+
+    <TextView
+        android:id="@+id/textView12"
+        android:layout_width="match_parent"
+        android:layout_height="18dp"
+        android:text="hoặc"
+        android:textAlignment="center"
+        android:textStyle="bold|italic"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/introLoginButton" />
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView12">
+
+        <Button
+            android:layout_width="150dp"
+            android:layout_height="35dp"
+            android:backgroundTint="#00387A5C"
+            android:text="ĐĂNG KÝ"
+            android:shadowColor="#8D000000"
+            android:shadowDy="3"
+            android:shadowRadius="2"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="12sp"
+            android:textStyle="bold"/>
+        <View
+            android:layout_width="60dp"
+            android:layout_height="1dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="25dp"
+            android:background="@drawable/underline" />
+    </RelativeLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
