@@ -15,7 +15,7 @@
         android:layout_margin="100dp">
 
         <ImageView
-            android:id="@+id/imageView2"
+            android:id="@+id/Signin_IMG_logo"
             android:layout_width="100dp"
             android:layout_height="100dp"
             tools:srcCompat="@drawable/logoaeon" />
@@ -23,7 +23,7 @@
     </androidx.cardview.widget.CardView>
 
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/Signin_TV_Email"
         android:layout_width="349dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -33,7 +33,7 @@
         android:textSize="20dp"/>
 
     <EditText
-        android:id="@+id/editTextText"
+        android:id="@+id/Signin_EDT_Email"
         android:layout_width="360dp"
         android:layout_height="48dp"
         android:layout_gravity="center"
@@ -44,7 +44,7 @@
         android:inputType="text" />
 
     <TextView
-        android:id="@+id/textView13"
+        android:id="@+id/Signin_TV_PASS"
         android:layout_width="360dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -53,7 +53,7 @@
         android:textSize="20dp"/>
 
     <EditText
-        android:id="@+id/editTextText2"
+        android:id="@+id/Signin_EDT_PASS"
         android:layout_width="360dp"
         android:layout_height="48dp"
         android:layout_gravity="center"
@@ -64,7 +64,7 @@
         />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/Signin_BTN_Signin"
         android:layout_width="187dp"
         android:layout_height="50dp"
         android:layout_gravity="center"

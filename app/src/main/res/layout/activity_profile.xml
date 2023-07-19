@@ -8,7 +8,7 @@
     tools:context=".Activity.Profile">
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/profile_TV_pro"
         android:layout_width="match_parent"
         android:layout_height="33dp"
         android:layout_weight="1"
@@ -37,7 +37,7 @@
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/textView2"
+            android:id="@+id/profile_TV_TenKH"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Nguyễn sinh huong"
@@ -46,7 +46,7 @@
             android:textStyle="bold"/>
 
         <TextView
-            android:id="@+id/textView3"
+            android:id="@+id/profile_TV_thaydoi"
             android:layout_width="match_parent"
             android:layout_height="30dp"
             android:text="thay đổi thông tin"
@@ -54,11 +54,12 @@
             android:textStyle="italic"/>
 
         <Button
-            android:id="@+id/button"
+            android:id="@+id/profile_BTN_caidat"
             android:layout_width="175dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:text="Cài đặt"
+            android:textSize="20dp"
             android:backgroundTint="@color/xanh_la_cay_dam"/>
 
         <LinearLayout
@@ -67,7 +68,7 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/textView6"
+                android:id="@+id/profile_TV_LSMH"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
@@ -81,7 +82,7 @@
                 />
 
             <TextView
-                android:id="@+id/textView7"
+                android:id="@+id/profile_Tv_DSYT"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
@@ -95,7 +96,7 @@
                 />
 
             <TextView
-                android:id="@+id/textView8"
+                android:id="@+id/profile_Tv_QDDK"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
@@ -108,7 +109,7 @@
                 android:textStyle="bold"/>
 
             <TextView
-                android:id="@+id/textView9"
+                android:id="@+id/profile_Tv_Lienlac"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
@@ -121,7 +122,7 @@
                 android:textStyle="bold"/>
 
             <TextView
-                android:id="@+id/textView5"
+                android:id="@+id/profile_Tv_DMK"
                 android:layout_width="322dp"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
@@ -134,7 +135,7 @@
                 android:textStyle="bold"/>
 
             <TextView
-                android:id="@+id/textView11"
+                android:id="@+id/profile_Tv_XTK"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
@@ -147,7 +148,7 @@
                 android:textStyle="bold"/>
 
             <TextView
-                android:id="@+id/textView10"
+                android:id="@+id/profile_Tv_DX"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"

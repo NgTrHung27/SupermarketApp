@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    tools:context=".Activity.Detail_Profile_Activity">
+
+    <TextView
+        android:id="@+id/detailprofile_TV_tieude"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="Thông tin cá nhân"
+        android:layout_marginBottom="20dp"
+        android:textStyle="bold"
+        android:textSize="20dp"/>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="wrap_content"
+        android:layout_height="114dp"
+        android:layout_gravity="center"
+        app:cardCornerRadius="100dp"
+        android:layout_marginBottom="30dp">
+
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="wrap_content"
+            android:layout_height="110dp"
+            android:layout_marginBottom="20dp"
+            android:layout_weight="1"
+            tools:srcCompat="@tools:sample/avatars[3]" />
+    </androidx.cardview.widget.CardView>
+    <TextView
+        android:id="@+id/detailprofile_TV_tieude2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="Thông tin cá nhân"
+        android:gravity="center"
+        android:layout_marginBottom="30dp"
+        android:textStyle="bold"
+        android:textSize="30dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        android:layout_marginBottom="40dp">
+
+        <TextView
+            android:id="@+id/detailprofile_TV_HOTEN"
+            android:layout_width="141dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Họ và Tên:"
+            android:textStyle="bold"
+            android:textSize="20dp"/>
+
+        <TextView
+            android:id="@+id/etailprofile_TV_TenKH"
+            android:layout_width="224dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="Nguyễn Văn A"
+            android:textSize="20dp"
+            android:textStyle="bold"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        android:layout_marginBottom="40dp">
+
+        <TextView
+            android:id="@+id/etailprofile_TV_NS"
+            android:layout_width="141dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Ngày Sinh:"
+            android:textStyle="bold"
+            android:textSize="20dp"/>
+
+        <TextView
+            android:id="@+id/etailprofile_TV_NSKH"
+            android:layout_width="224dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="01/01/2000"
+            android:textSize="20dp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        android:layout_marginBottom="40dp">
+
+        <TextView
+            android:id="@+id/etailprofile_TV_Email"
+            android:layout_width="141dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Email:"
+            android:textStyle="bold"
+            android:textSize="20dp"/>
+
+        <TextView
+            android:id="@+id/etailprofile_TV_EmailKH"
+            android:layout_width="224dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="nguyenvana@gmail.com"
+            android:textSize="20dp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        android:layout_marginBottom="40dp">
+
+        <TextView
+            android:id="@+id/etailprofile_TV_CMND"
+            android:layout_width="141dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="CMND/CCCD:"
+            android:textStyle="bold"
+            android:textSize="20dp"/>
+
+        <TextView
+            android:id="@+id/etailprofile_TV_CMNDKH"
+            android:layout_width="224dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="0123456789"
+            android:textSize="20dp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        android:layout_marginBottom="40dp">
+
+        <TextView
+            android:id="@+id/etailprofile_TV_SDT"
+            android:layout_width="141dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Số điện thoại:"
+            android:textStyle="bold"
+            android:textSize="20dp"/>
+
+        <TextView
+            android:id="@+id/etailprofile_TV_SDTKH"
+            android:layout_width="224dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="0111456789"
+            android:textSize="20dp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        android:layout_marginBottom="40dp">
+
+        <TextView
+            android:id="@+id/etailprofile_TV_GT"
+            android:layout_width="141dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Giới tính:"
+            android:textStyle="bold"
+            android:textSize="20dp"/>
+
+        <TextView
+            android:id="@+id/etailprofile_TV_GTKH"
+            android:layout_width="224dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="Nam"
+            android:textSize="20dp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        >
+
+        <TextView
+            android:id="@+id/etailprofile_TV_DC"
+            android:layout_width="141dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Địa chỉ:"
+            android:textStyle="bold"
+            android:textSize="20dp"/>
+
+        <TextView
+            android:id="@+id/etailprofile_TV_DCKH"
+            android:layout_width="224dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="Phố đi bộ Nguyện Huệ"
+            android:textSize="20dp"/>
+    </LinearLayout>
+</LinearLayout>
