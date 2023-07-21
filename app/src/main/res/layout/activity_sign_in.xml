@@ -29,8 +29,8 @@
         android:layout_gravity="center"
         android:layout_marginBottom="10dp"
         android:text="Email:"
-        android:textStyle="bold"
-        android:textSize="20dp"/>
+        android:textSize="20dp"
+        android:textStyle="bold" />
 
     <EditText
         android:id="@+id/Signin_EDT_Email"
@@ -40,8 +40,9 @@
         android:layout_marginBottom="20dp"
         android:background="@drawable/signin_edit"
         android:ems="10"
-        android:hint="     abc@gmail.com"
-        android:inputType="text" />
+        android:hint="abc@gmail.com"
+        android:inputType="text"
+         />
 
     <TextView
         android:id="@+id/Signin_TV_PASS"
@@ -50,7 +51,8 @@
         android:layout_gravity="center"
         android:text="Mật khẩu:"
         android:textStyle="bold"
-        android:textSize="20dp"/>
+        android:textSize="20dp"
+        />
 
     <EditText
         android:id="@+id/Signin_EDT_PASS"
@@ -60,7 +62,8 @@
         android:layout_marginBottom="20dp"
         android:background="@drawable/signin_edit"
         android:ems="10"
-
+        android:inputType="textPassword"
+        android:hint="abc"
         />
 
     <Button
