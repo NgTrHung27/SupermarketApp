@@ -16,6 +16,9 @@
             android:name=".Activity.ChinhSuaHoSo"
             android:exported="false" />
         <activity
+            android:name=".Activity.PaymentActivity"
+            android:exported="false" />
+        <activity
             android:name=".Activity.Quay_Thuong"
             android:exported="false" />
         <activity

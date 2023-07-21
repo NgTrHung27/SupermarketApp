@@ -80,7 +80,6 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:layout_weight="1"
-                android:drawableLeft="@drawable/baseline_favorite_border_24"
                 android:gravity="start|center_vertical"
                 android:padding="10dp"
                 android:text="Xem danh sách yêu thích"
