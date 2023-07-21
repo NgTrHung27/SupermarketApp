@@ -203,12 +203,12 @@
 
         <TextView
             android:id="@+id/etailprofile_TV_DC"
-            android:layout_width="141dp"
+            android:layout_width="163dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Địa chỉ:"
-            android:textStyle="bold"
-            android:textSize="20dp"/>
+            android:textSize="20dp"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/etailprofile_TV_DCKH"

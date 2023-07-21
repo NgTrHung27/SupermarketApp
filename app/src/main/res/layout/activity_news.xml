@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    tools:context=".Activity.NewsActivity"
+    >
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="431dp"
+        android:layout_gravity="center"
+        android:background="@drawable/boderradius_image"
+        android:backgroundTint="@color/mau_cam_nhat"
+        android:orientation="vertical"
+        android:paddingBottom="20dp">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="315dp"
+            android:layout_height="312dp"
+            android:layout_gravity="center"
+            app:cardCornerRadius="20dp">
+
+            <ImageView
+                android:id="@+id/News_IMG_1"
+                android:layout_width="315dp"
+                android:layout_height="320dp"
+                app:srcCompat="@drawable/event_figma1" />
+
+
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:id="@+id/News_TV_title1"
+            android:layout_width="256dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Trao 1 Quyển Sách - Tặng 1 Tương Lai"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:drawableLeft="@drawable/baseline_whatshot_24"/>
+
+        <TextView
+            android:id="@+id/News_TV_time1"
+            android:layout_width="256dp"
+            android:layout_height="17dp"
+            android:layout_gravity="center"
+            android:text="01/04/2023 - 31/12/2023 "
+            android:drawableLeft="@drawable/baseline_access_time_24"/>
+
+        <TextView
+            android:id="@+id/News_TV_dicreption1"
+            android:layout_width="256dp"
+            android:layout_height="36dp"
+            android:layout_gravity="center"
+            android:drawableLeft="@drawable/baseline_star_border_24"
+            android:text="AEON MART Bình tân diễn ra hoạt động xuyên suốt quy..."
+            android:textSize="13dp" />
+
+    </LinearLayout>
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="35dp" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="428dp"
+        android:layout_gravity="center"
+        android:orientation="vertical"
+        android:background="@drawable/boderradius_image"
+        android:backgroundTint="@color/mau_cam_nhat">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="315dp"
+            android:layout_height="312dp"
+            android:layout_gravity="center"
+            app:cardCornerRadius="20dp">
+
+            <ImageView
+                android:id="@+id/News_IMG_2"
+                android:layout_width="315dp"
+                android:layout_height="311dp"
+                app:srcCompat="@drawable/event_figma" />
+
+
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:id="@+id/News_TV_title2"
+            android:layout_width="256dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Hóa Đơn Trao Tay - Voucher Nhận Ngay"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:drawableLeft="@drawable/baseline_whatshot_24"/>
+
+        <TextView
+            android:id="@+id/News_TV_time2"
+            android:layout_width="256dp"
+            android:layout_height="17dp"
+            android:layout_gravity="center"
+            android:text="19/06/2023 - 29/06/2023"
+            android:drawableLeft="@drawable/baseline_access_time_24"/>
+
+        <TextView
+            android:id="@+id/News_TV_dicreption2"
+            android:layout_width="256dp"
+            android:layout_height="46dp"
+            android:layout_gravity="center"
+            android:drawableLeft="@drawable/baseline_star_border_24"
+            android:text="thời cơ đến rồi, cứ mua sắm là có quà đây khách ơi...."
+            android:textSize="14dp" />
+    </LinearLayout>
+
+</LinearLayout>
