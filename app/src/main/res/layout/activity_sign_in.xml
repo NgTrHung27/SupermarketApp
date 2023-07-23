@@ -24,14 +24,13 @@
 
     <TextView
         android:id="@+id/Signin_TV_Email"
-        android:layout_width="349dp"
+        android:layout_width="358dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginBottom="10dp"
         android:text="Email:"
         android:textSize="20dp"
-        android:textStyle="bold"
-        />
+        android:textStyle="bold" />
 
     <EditText
         android:id="@+id/Signin_EDT_Email"
@@ -43,6 +42,7 @@
         android:ems="10"
         android:hint="abc@gmail.com"
         android:inputType="text"
+        android:paddingStart="10dp"
          />
 
     <TextView
@@ -65,6 +65,7 @@
         android:ems="10"
         android:inputType="textPassword"
         android:hint="abc"
+        android:paddingStart="10dp"
         />
 
     <Button
@@ -81,7 +82,7 @@
         android:layout_width="120dp"
         android:layout_height="20dp"
         android:layout_marginLeft="145dp"
-        android:text="Chưa có tài khoản"/>
+        android:text="Chưa có tài khoản?"/>
     <RelativeLayout
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"

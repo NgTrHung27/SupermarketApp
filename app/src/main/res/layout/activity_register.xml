@@ -30,7 +30,8 @@
             android:layout_gravity="center"
             android:layout_marginBottom="10dp"
             android:text="Họ và Tên"
-            android:textStyle="bold"/>
+            android:textStyle="bold"
+            />
 
         <EditText
             android:id="@+id/Regis_EdText_Name"
@@ -41,7 +42,8 @@
             android:background="@drawable/signin_edit"
             android:inputType="text"
             android:drawableRight="@drawable/baseline_person_24"
-            android:paddingEnd="20dp"/>
+            android:paddingEnd="20dp"
+            />
 
         --
         <TextView
@@ -82,10 +84,11 @@
             android:layout_gravity="center"
             android:layout_marginBottom="10dp"
             android:background="@drawable/signin_edit"
-            android:hint="   abc@gmail.com"
+            android:hint="abc@gmail.com"
             android:inputType="text"
             android:drawableRight="@drawable/baseline_email_24"
-            android:paddingEnd="20dp"/>
+            android:paddingEnd="20dp"
+            android:paddingStart="10dp"/>
         --
         <TextView
             android:id="@+id/Regis_Text5"
