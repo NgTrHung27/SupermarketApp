@@ -23,4 +23,69 @@
         android:textSize="28sp"
         android:layout_centerInParent="true"/>
 </RelativeLayout>
+    <LinearLayout
+        android:paddingLeft="25dp"
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:text="Tên khách hàng:"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            />
+        <TextView
+            android:id="@+id/trahang_info_tenkh"
+            android:layout_marginLeft="15dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="tên khách hàng"
+            android:textSize="20sp"/>
+    </LinearLayout>
+    <LinearLayout
+        android:paddingLeft="25dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingTop="10dp">
+        <TextView
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:text="Đơn hàng:"
+            android:textAlignment="textEnd"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            />
+        <TextView
+            android:id="@+id/trahang_info_donhang"
+            android:layout_marginLeft="15dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="đơn hàng"
+            android:textSize="20sp"/>
+    </LinearLayout>
+    <LinearLayout
+        android:paddingLeft="25dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="10dp">
+        <TextView
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:text="Ngày mua hàng"
+            android:textAlignment="textEnd"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            />
+        <TextView
+            android:id="@+id/trahang_info_ngaymuahang"
+            android:layout_marginLeft="15dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ngày mua hàng"
+            android:textSize="20sp"/>
+    </LinearLayout>
 </LinearLayout>
