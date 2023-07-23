@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Activity.GioHang">
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="center">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Giỏ Hàng("
+            android:textSize="30dp"
+            android:textStyle="bold"
+            android:layout_gravity="center"
+            android:layout_marginBottom="20dp"/>
+        <TextView
+            android:id="@+id/GioHang_TextSL"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="3"
+            android:textSize="30dp"
+            android:textStyle="bold"
+            android:layout_gravity="center"
+            android:layout_marginBottom="20dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=")"
+            android:textSize="30dp"
+            android:textStyle="bold"
+            android:layout_gravity="center"
+            android:layout_marginBottom="20dp"/>
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="20dp"
+        android:id="@+id/GH_rcv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <ImageView
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="3dp"
+        android:src="@drawable/underline"/>
+
+    <LinearLayout
+        android:paddingTop="10dp"
+        android:paddingLeft="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+        <CheckBox
+            android:id="@+id/GH_checkbox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Chọn tất cả"
+            />
+
+        <TextView
+            android:layout_marginLeft="100dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0Đ"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            />
+        <Button
+            android:id="@+id/GH_btnThanhToan"
+            android:layout_marginLeft="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="THANH TOÁN"
+            android:backgroundTint="#DB0000"
+            />
+    </LinearLayout>
+
+</LinearLayout>
