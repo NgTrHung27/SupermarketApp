@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:tools="http://schemas.android.com/tools" >
 
     <application
         android:allowBackup="true"
@@ -11,24 +11,25 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AeonMart_Demo"
-        tools:targetApi="31">
+        tools:targetApi="31" >
         <activity
-            android:name=".Activity.Shop"
+            android:name=".Activity.XacNhanThanhToanActivity"
             android:exported="false" />
         <activity
-            android:name=".Activity.XacNhanThanhToan"
+            android:name=".Activity.ChinhSuaHoSoActivity"
             android:exported="false" />
         <activity
-            android:name=".Activity.ChinhSuaHoSo"
+            android:name=".Activity.GioHangActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.ShopActivity"
             android:exported="false" />
         <activity
             android:name=".Activity.PaymentActivity"
             android:exported="false" />
         <activity
             android:name=".Activity.Danh_Gia_SP_Activity"
-            android:exported="true">
-
-        </activity>
+            android:exported="true" />
         <activity
             android:name=".Activity.Quay_Thuong"
             android:exported="false" />
@@ -37,9 +38,7 @@
             android:exported="false" />
         <activity
             android:name=".Activity.Detail_Profile_Activity"
-            android:exported="true" >
-
-        </activity>
+            android:exported="true" />
         <activity
             android:name=".Activity.SignInActivity"
             android:exported="true" >
@@ -54,8 +53,7 @@
             android:exported="false" />
         <activity
             android:name=".Activity.RegisterActivity"
-            android:exported="true">
-        </activity>
+            android:exported="true" />
         <activity
             android:name=".MainActivity"
             android:exported="true" />

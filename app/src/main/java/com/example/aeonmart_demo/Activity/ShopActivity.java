@@ -6,7 +6,7 @@ import android.os.Bundle;
 
 import com.example.aeonmart_demo.R;
 
-public class Shop extends AppCompatActivity {
+public class ShopActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

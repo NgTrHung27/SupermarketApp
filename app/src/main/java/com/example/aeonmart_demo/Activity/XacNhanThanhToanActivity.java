@@ -6,11 +6,11 @@ import android.os.Bundle;
 
 import com.example.aeonmart_demo.R;
 
-public class GioHang extends AppCompatActivity {
+public class XacNhanThanhToanActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_gio_hang);
+        setContentView(R.layout.activity_xac_nhan_thanh_toan);
     }
 }

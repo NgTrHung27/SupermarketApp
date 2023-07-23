@@ -78,11 +78,11 @@
         android:orientation="horizontal"
         android:paddingLeft="80dp"
         >
-       <ImageSwitcher
-           android:id="@+id/XNTT_imgMoMo"
-           android:layout_width="67dp"
-           android:layout_height="56dp"
-           android:background="@drawable/logomomo"/>
+        <ImageSwitcher
+            android:id="@+id/XNTT_imgMoMo"
+            android:layout_width="67dp"
+            android:layout_height="56dp"
+            android:background="@drawable/logomomo"/>
         <ImageSwitcher
             android:id="@+id/XNTT_imgZaloPay"
             android:layout_marginLeft="20dp"
@@ -156,21 +156,21 @@
         android:text="XÁC NHẬN THANH TOÁN"
         android:backgroundTint="#DB0000"
         />
-<LinearLayout
-    android:layout_marginTop="10dp"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:orientation="horizontal"
-    android:layout_marginLeft="200dp"
-    >
-    <CheckBox
-        android:id="@+id/XNTT_checkboxXuathoadon"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
-    <TextView
+    <LinearLayout
+        android:layout_marginTop="10dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="yêu cầu xuất hóa đơn"
-        />
-</LinearLayout>
+        android:orientation="horizontal"
+        android:layout_marginLeft="200dp"
+        >
+        <CheckBox
+            android:id="@+id/XNTT_checkboxXuathoadon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="yêu cầu xuất hóa đơn"
+            />
+    </LinearLayout>
 </LinearLayout>
