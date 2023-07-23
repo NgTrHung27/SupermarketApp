@@ -31,7 +31,7 @@
             android:name=".Activity.Danh_Gia_SP_Activity"
             android:exported="true" />
         <activity
-            android:name=".Activity.Quay_Thuong"
+            android:name=".Activity.Quay_ThuongActivity"
             android:exported="false" />
         <activity
             android:name=".Activity.NewsActivity"
@@ -49,7 +49,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Activity.Profile"
+            android:name=".Activity.ProfileActivity"
             android:exported="false" />
         <activity
             android:name=".Activity.RegisterActivity"

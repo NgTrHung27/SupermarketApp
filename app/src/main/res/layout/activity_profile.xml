@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    tools:context=".Activity.Profile">
+    tools:context=".Activity.ProfileActivity">
 
     <TextView
         android:id="@+id/profile_TV_pro"
@@ -81,6 +81,7 @@
                 android:layout_margin="10dp"
                 android:layout_weight="1"
                 android:gravity="start|center_vertical"
+                android:drawableLeft="@drawable/baseline_favorite_border_24"
                 android:padding="10dp"
                 android:text="Xem danh sách yêu thích"
                 android:textSize="20dp"
