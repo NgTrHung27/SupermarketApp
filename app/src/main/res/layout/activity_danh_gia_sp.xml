@@ -66,6 +66,7 @@
                 android:hint="Nội dung..."
                 android:maxLines="300" />
         <Button
+            android:id="@+id/danhgia_btn_tieptheo"
             android:layout_width="160dp"
             android:layout_height="55dp"
             android:backgroundTint="@color/xanh_la_cay_dam"
