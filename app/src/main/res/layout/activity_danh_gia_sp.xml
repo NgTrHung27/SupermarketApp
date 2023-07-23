@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activity.Danh_Gia_SP_Activity"
+    android:orientation="vertical">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="37sp"
+        android:text="ĐÁNH GIÁ"
+        android:textAlignment="center"
+        android:layout_marginTop="15dp"
+        android:textStyle="bold"/>
+    <androidx.cardview.widget.CardView
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="20dp"
+        android:layout_gravity="center"
+        app:cardCornerRadius="80dp">
+    <ImageView
+        android:id="@+id/danhgia_anhsp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@mipmap/ic_launcher"
+        />
+    </androidx.cardview.widget.CardView>
+    <TextView
+        android:id="@+id/danhgia_tensp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Tên sản phẩm"
+        android:textSize="25sp"
+        android:textAlignment="center"
+        android:layout_marginTop="10dp"
+        />
+    <RatingBar
+        android:id="@+id/danhgia_ratingBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:numStars="5"
+        android:stepSize="0.2"
+        android:rating="4.2"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="16dp" />
+            <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Góp ý:"
+            android:layout_marginLeft="25dp"
+            android:textSize="20sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="10dp"
+            />
+            <EditText
+                android:background="@drawable/khungdanhgia"
+                android:id="@+id/your_edit_text"
+                android:padding="15dp"
+                android:layout_width="380dp"
+                android:layout_height="380dp"
+                android:gravity="top|start"
+                android:layout_gravity="center"
+                android:inputType="textMultiLine"
+                android:hint="Nội dung..."
+                android:maxLines="300" />
+        <Button
+            android:layout_width="160dp"
+            android:layout_height="55dp"
+            android:backgroundTint="@color/xanh_la_cay_dam"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:text="TIẾP THEO"
+            android:textStyle="bold"
+            android:textSize="20dp"
+            />
+</LinearLayout>
