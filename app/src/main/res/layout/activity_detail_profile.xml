@@ -66,8 +66,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:text="Nguyễn Văn A"
-            android:textSize="23dp"
-            android:textStyle="bold"/>
+            android:textSize="23dp" />
     </LinearLayout>
 
     <LinearLayout

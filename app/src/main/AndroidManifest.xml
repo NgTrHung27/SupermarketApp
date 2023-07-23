@@ -13,6 +13,12 @@
         android:theme="@style/Theme.AeonMart_Demo"
         tools:targetApi="31">
         <activity
+            android:name=".Activity.Shop"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.XacNhanThanhToan"
+            android:exported="false" />
+        <activity
             android:name=".Activity.ChinhSuaHoSo"
             android:exported="false" />
         <activity
