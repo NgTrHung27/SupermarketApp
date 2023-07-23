@@ -6,7 +6,6 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".Activity.VoucherListActivity">
-
     <TextView
         android:id="@+id/VoucList_Text"
         android:layout_width="match_parent"
@@ -41,7 +40,6 @@
             android:textStyle="bold"
             android:textSize="17sp"/>
     </LinearLayout>
-
         <LinearLayout
             android:layout_width="70dp"
             android:layout_height="120dp">
@@ -60,6 +58,7 @@
                 android:textStyle="bold"/>
         </LinearLayout>
     </LinearLayout>
+
     <LinearLayout
         android:id="@+id/VoucList_Linear2"
         android:layout_width="370dp"
@@ -67,8 +66,7 @@
         android:orientation="horizontal"
         android:background="@drawable/custom"
         android:layout_marginLeft="10dp"
-        android:layout_marginTop="10dp"
-        >
+        android:layout_marginTop="10dp">
         <LinearLayout
             android:layout_width="300dp"
             android:layout_height="120dp">
@@ -104,4 +102,21 @@
                 android:textStyle="bold"/>
         </LinearLayout>
     </LinearLayout>
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/VoucList_bottomnav"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        app:labelVisibilityMode="unlabeled"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:background="#CB387A5C"
+        app:menu="@menu/bottom_nav"
+        app:itemIconTint="@color/bottomnav_item_color"
+        />
+</androidx.constraintlayout.widget.ConstraintLayout>
 </LinearLayout>
