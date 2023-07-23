@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:title="Home" android:icon="@drawable/bottomnav_home" android:id="@+id/navHome" />
-    <item android:title="Gift" android:icon="@drawable/bottomnav_voucher" android:id="@+id/navVoucher" />
-    <item android:title="User" android:icon="@drawable/bottomnav_user" android:id="@+id/navUser" />
-</menu>
