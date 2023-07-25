@@ -12,19 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AeonMart_Demo"
         tools:targetApi="31">
-
-<!--        <meta-data-->
-<!--            android:name="com.google.android.actions"-->
-<!--            android:resource="@xml/slider_view_rounded.xml" />-->
         <activity
-            android:name=".Activity.HomeActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:name=".Activity.SearchActivity"
+            android:exported="false" />
         <activity
             android:name=".Activity.XacNhanThanhToanActivity"
             android:exported="false" />
@@ -55,7 +45,11 @@
         <activity
             android:name=".Activity.SignInActivity"
             android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity
             android:name=".Activity.ProfileActivity"

@@ -43,7 +43,9 @@
             android:text="Nguyễn sinh huong"
             android:textAlignment="center"
             android:textAllCaps="true"
+            android:textSize="20sp"
             android:textStyle="bold"
+            android:layout_marginTop="5dp"
             android:layout_marginBottom="12dp"/>
         <Button
             android:id="@+id/profile_BTN_caidat"
@@ -51,7 +53,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:backgroundTint="@color/xanh_la_cay_dam"
-            android:text="xem thông tin"
+            android:text="Xem thông tin"
             android:textSize="20dp" />
 
         <LinearLayout
@@ -90,7 +92,7 @@
                 />
 
             <TextView
-                android:id="@+id/profile_Tv_QDDK"
+                android:id="@+id/profile_Tv_QD"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
@@ -98,11 +100,23 @@
                 android:drawableLeft="@drawable/baseline_note_alt_24"
                 android:gravity="start|center_vertical"
                 android:padding="5dp"
-                android:text="Quy định và điều khoản"
+                android:text="Quy định"
                 android:textSize="20dp"
                 android:textStyle="bold"
                 android:drawablePadding="10dp"/>
-
+            <TextView
+                android:id="@+id/profile_Tv_DK"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:layout_weight="1"
+                android:drawableLeft="@drawable/baseline_calendar_month_24"
+                android:gravity="start|center_vertical"
+                android:padding="5dp"
+                android:text="Điều khoản"
+                android:textSize="20dp"
+                android:textStyle="bold"
+                android:drawablePadding="10dp"/>
 
             <TextView
                 android:id="@+id/profile_Tv_Lienlac"
@@ -113,7 +127,7 @@
                 android:drawableLeft="@drawable/baseline_phone_24"
                 android:gravity="start|center_vertical"
                 android:padding="10dp"
-                android:text="Liên lạc với chúng tôi"
+                android:text="Thông tin của chúng tôi"
                 android:textSize="20dp"
                 android:textStyle="bold"
                 android:drawablePadding="10dp"/>
