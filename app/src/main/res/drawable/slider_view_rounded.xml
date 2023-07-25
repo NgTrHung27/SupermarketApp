@@ -1,0 +1,6 @@
+<!-- rounded_square.xml -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <solid android:color="#D9D9D9" /> <!-- Màu nền của hình vuông -->
+    <corners android:radius="20dp" /> <!-- Bán kính của góc (giá trị này xác định mức độ bo tròn) -->
+    <size android:width="400dp" android:height="200dp" /> <!-- Kích thước của hình vuông -->
+</shape>

@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activity.HomeActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <ScrollView
+            android:scrollbars="none"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/white">
+
+                <com.smarteist.autoimageslider.SliderView
+                    android:id="@+id/sliderView"
+                    android:layout_width="match_parent"
+                    android:layout_height="230dp"
+                    android:layout_margin="13dp"
+                    android:background="@drawable/slider_view_rounded"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:sliderIndicatorSelectedColor="#FF3D00"
+                    app:sliderIndicatorUnselectedColor="#987979"
+                    tools:ignore="MissingConstraints"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@id/sliderView"
+                    android:gravity="center"
+                    android:layout_marginTop="15dp"
+                    android:id="@+id/Highlight1">
+                    <ImageButton
+                        android:id="@+id/IB_Voucher"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/baseline_card_giftcard_24"
+                        android:background="@drawable/round_background"
+                        android:layout_marginLeft="0dp"/>
+                    <ImageButton
+                        android:id="@+id/IB_Coin"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/baseline_attach_money_24"
+                        android:background="@drawable/round_background"
+                        android:layout_marginLeft="40dp"/>
+                    <ImageButton
+                        android:id="@+id/IB_News"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/baseline_newspaper_24"
+                        android:background="@drawable/round_background"
+                        android:layout_marginLeft="40dp"/>
+                    <ImageButton
+                        android:id="@+id/IB_Return"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/baseline_move_up_24"
+                        android:background="@drawable/round_background"
+                        android:layout_marginLeft="40dp"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@id/Highlight1"
+                    android:gravity="center"
+                    android:id="@+id/TextHighlight2">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="E-Voucher"
+                        android:layout_marginLeft="0dp"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Tích xu"
+                        android:layout_marginLeft="30dp"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Tin Tức"
+                        android:layout_marginLeft="30dp"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Đổi trả"
+                        android:layout_marginLeft="40dp"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@id/TextHighlight2"
+                    android:gravity="center"
+                    android:layout_marginTop="15dp"
+                    android:id="@+id/Highlight3">
+                    <ImageButton
+                        android:id="@+id/IB_Review"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/baseline_rate_review_24"
+                        android:background="@drawable/round_background"
+                        android:layout_marginLeft="0dp"/>
+                    <ImageButton
+                        android:id="@+id/IB_Fav"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/baseline_favorite_border_24"
+                        android:background="@drawable/round_background"
+                        android:layout_marginLeft="40dp"/>
+                    <ImageButton
+                        android:id="@+id/IB_Lucky"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/baseline_volunteer_activism_24"
+                        android:background="@drawable/round_background"
+                        android:layout_marginLeft="40dp"/>
+                    <ImageButton
+                        android:id="@+id/IB_Noti"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/baseline_notifications_none_24"
+                        android:background="@drawable/round_background"
+                        android:layout_marginLeft="40dp"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@id/Highlight3"
+                    android:gravity="center"
+                    android:id="@+id/TextHighlight4">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Đánh giá"
+                        android:layout_marginLeft="0dp"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Yêu Thích"
+                        android:layout_marginLeft="30dp"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Vòng quay"
+                        android:layout_marginLeft="30dp"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Thông báo"
+                        android:layout_marginLeft="40dp"/>
+                </LinearLayout>
+                <TextView
+                    android:id="@+id/Home_Text_DMSP"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@id/TextHighlight4"
+                    android:text="Danh mục sản phẩm"
+                    android:textStyle="bold"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="10dp"/>
+
+                <LinearLayout
+                    android:id="@+id/List_linearDMSP"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:gravity="center"
+                    app:layout_constraintTop_toBottomOf="@id/Home_Text_DMSP">
+
+                    <ImageButton
+                        android:layout_width="150px"
+                        android:layout_height="300px"
+                        android:layout_marginLeft="0dp"
+                        android:background="@drawable/cate_highlight_background" />
+
+                    <ImageButton
+                        android:layout_width="150px"
+                        android:layout_height="300px"
+                        android:layout_marginLeft="20dp"
+                        android:background="@drawable/cate_highlight_background" />
+
+                    <ImageButton
+                        android:layout_width="150px"
+                        android:layout_height="300px"
+                        android:layout_marginLeft="20dp"
+                        android:background="@drawable/cate_highlight_background" />
+
+                    <ImageButton
+                        android:layout_width="150px"
+                        android:layout_height="300px"
+                        android:layout_marginLeft="20dp"
+                        android:background="@drawable/cate_highlight_background" />
+
+                    <ImageButton
+                        android:layout_width="150px"
+                        android:layout_height="300px"
+                        android:layout_marginLeft="20dp"
+                        android:background="@drawable/cate_highlight_background" />
+                </LinearLayout>
+                <TextView
+                    android:id="@+id/Home_Text_Product"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@id/List_linearDMSP"
+                    android:text="Danh mục sản phẩm"
+                    android:textStyle="bold"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="10dp"/>
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/Home_ProductListView"
+                    android:layout_marginTop="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginHorizontal="8dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/Home_Text_Product"/>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </ScrollView>
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
