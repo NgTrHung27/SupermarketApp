@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Detail_HoSo_Activity.InforActivity">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Thông tin về chúng tôi"
+        android:textSize="35dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="50dp"
+        android:textColor="#ED0E0E"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="TRẢI NGHIỆM PHONG CÁCH MUA SẮM TRỰC TUYẾN AN TOÀN CHÁT LƯỢNG TỪ AEON"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:textSize="15dp"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Chính thức thành lập vào ngày 01/01/2017, trang mua sắm trực tuyến và duy nhất của AEON: https://aeonshop.com/ hứa hẹn giải quyết bài toans mua sắm trực tuyến an toàn, sản phẩm chất lượng và dịch vụ chu đáo cho khách hàng."
+        android:textSize="14dp"
+        android:textStyle="bold"
+        />
+    <LinearLayout
+        android:id="@+id/Infor_Lin1"
+        android:layout_width="match_parent"
+        android:layout_height="315dp"
+        android:layout_marginTop="60dp"
+        >
+        <ImageView
+            android:layout_width="200dp"
+            android:layout_height="250dp"
+            android:src="@drawable/infor1"
+            />
+        <LinearLayout
+            android:layout_width="200dp"
+            android:layout_height="250dp"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="200dp"
+                android:layout_height="70dp"
+                android:text="Đáp ứng nhu cầu tìm mua sản phẩm Nhật Bản chất lượng"
+                android:textSize="16dp"
+                android:textStyle="bold"/>
+            <TextView
+                android:layout_width="200dp"
+                android:layout_height="100dp"
+                android:text="Uy tín chất lượng và có độ bền thời gian sản phẩm Nhật lâu nay vẫn luôn chiếm được lòng tin, cảm tình của hầu hết người tiêu dùng Việt"/>
+    </LinearLayout>
+</LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="190dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginLeft="20dp">
+            <TextView
+                android:layout_width="190dp"
+                android:layout_height="70dp"
+                android:text="AeonEshop - kênh mua sắm hàng nội ngoại nhập đáng tin cậy"
+                android:textStyle="bold"/>
+            <TextView
+                android:layout_width="190dp"
+                android:layout_height="300dp"
+                android:text="Tuy nhiên, ngày càng có nhiều trang wed bán hàng ngoại nhập không đảm bảo về nguồn gốc xuất xứ sản phẩm, nhiều khách hàng hoang mang về độ tin cậy của nhà cung cấp, hay không hài lòng về quy trình đặt hàng phức tạp, nhiều rủi ro."
+                android:textSize="15dp"/>
+        </LinearLayout>
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:src="@drawable/infor2"
+            />
+    </LinearLayout>
+</LinearLayout>

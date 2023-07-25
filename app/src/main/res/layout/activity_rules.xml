@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Detail_HoSo_Activity.RulesActivity">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Điều khoản hợp đồng"
+        android:textSize="35dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="50dp"
+        android:textColor="#ED0E0E"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="1. Chương trình khuyến mãi"
+        android:textStyle="bold"
+        android:textSize="18dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="20dp"/>
+    <TextView
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:text="-Aeon có quyền từ chối đơn hàng không thỏa mãn điều khoản và điều kiện tham gia các chương trình khuyến mãi mà không cần thông báo đến khách hàng. Vì vây, xin vui khách vui lòng tham khảo kĩ Thể lệ của từng chương trình trước khi tham gia."
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="2. Chính sách về hàng giả, hàng nhái, hàng không đúng chất lượng"
+        android:textStyle="bold"
+        android:textSize="18dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="20dp"/>
+    <TextView
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:text="-Trong trường hợp khách hàng có nghi ngờ về sản phẩm sản xuất trái phép, sao chép, hàng giả, hàng nhái, không rõ nguồn gốc xuất xứ,... vui lòng thông báo ngay cho chúng tôi bằng cách liên hệ Bộ phận Hỗ trợ khách hàng để được xác thực thông tin và hỗ trợ"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="3. Giải quyết hậu quả do lỗi nhập sai thông tin"
+        android:textStyle="bold"
+        android:textSize="18dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="20dp"/>
+    <TextView
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:text="-Khách hàng có trách nhiệm cung cấp thông tin đầy đủ và chính xác khi tham gia giao dịch tại ứng dụng. Trong trường hợp khách hàng nhập sai thông tin, AEON có quyền từ chối thực hiện giao dịch."
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="4. Giải quyết tranh chấp"
+        android:textStyle="bold"
+        android:textSize="18dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="20dp"/>
+    <TextView
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:text="-Bất kỳ khiếu nại hoặc tranh chấp phát sinh từ hoặc liên quan đến giao dịch trên ứng dụng hoặc các Quy định và điều kiện trong chính sách này đều sẽ được giải quyết bằng hình thức thương lượng, hoặc tại Tòa án có thẩm quyền của Việt Nam theo quy định của pháp luật Việt Nam."
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"/>
+</LinearLayout>

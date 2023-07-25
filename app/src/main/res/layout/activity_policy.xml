@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Detail_HoSo_Activity.PolicyActivity">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Chính sách bảo mật"
+        android:textSize="35dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="50dp"
+        android:textColor="#ED0E0E"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="CHÍNH SÁCH BẢO MẬT THÔNG TIN"
+        android:textStyle="bold"
+        android:textSize="20dp"
+        android:layout_marginLeft="20dp"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Chính sách bảo mật thông tin này là cam kết của Công ty TNHH AEON Việt Nam (“AEON”) với tất cả khách hàng tham gia mua hàng qua Trang TMĐT và Ứng dụng thương mại điện tử bán hàng của AEON - Ứng dụng AeonEshop (“Ứng dụng”)."
+        android:textStyle="bold"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="20dp"
+        android:textSize="17dp"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="1. MỤC ĐÍCH VÀ PHẠM VI THU THẬP THÔNG TIN"
+        android:layout_marginLeft="20dp"
+        android:textStyle="bold"
+        android:layout_marginTop="10dp"
+        android:textSize="17dp"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="+ Mục đích thu thập thông tin của khách hàng"
+        android:textSize="17dp"
+        android:textStyle="bold"
+        android:layout_marginLeft="20dp"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=". Thông báo nhanh chóng đến khách hàng"
+        android:layout_marginLeft="20dp"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=". Cung cấp tiện ích, nâng cao chất lượng dịch vụ hỗ trợ khách hàng."
+        android:layout_marginLeft="20dp"
+        android:textSize="13dp"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=". Duy trì liên lạc, hỗ trợ khách hàng"
+        android:layout_marginLeft="20dp"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=". Thông báo nhanh chóng đến khách hàng"
+        android:layout_marginLeft="20dp"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="+ Phạm vi thu thập thông tin của khách hàng"
+        android:textSize="17dp"
+        android:textStyle="bold"
+        android:layout_marginLeft="20dp"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=". Họ và tên"
+        android:layout_marginLeft="20dp"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=". Ngày tháng năm sinh"
+        android:layout_marginLeft="20dp"
+        android:textSize="13dp"
+        android:layout_marginTop="5dp" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=". Địa chỉ liên lạc"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="5dp" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=". Địa chỉ Email"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="5dp"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="2. Phạm vi sử dụng thông tin"
+        android:layout_marginLeft="20dp"
+        android:textStyle="bold"
+        android:layout_marginTop="10dp"
+        android:textSize="17dp"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="-Hoàn thiện hàng hóa và dịch vụ CSKH của AEON."
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="5dp" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="-Hỗ trợ thực hiện các chương trình khuyến khuyến mãi"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="5dp"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="3. CAM KẾT BẢO MẬT THÔNG TIN"
+        android:layout_marginLeft="20dp"
+        android:textStyle="bold"
+        android:layout_marginTop="10dp"
+        android:textSize="17dp"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="-AEON cam kết sẽ không bán, chia sẻ thông tin khách hàng"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="5dp" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="-Công ty cam kết sẽ không bắt khách hàng phải sử dụng dịch vụ."
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="5dp"
+        android:textSize="13dp"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="-Tất cả thông tin giao dịch sẽ được bảo mật tuyệt đối"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="5dp"/>
+</LinearLayout>
