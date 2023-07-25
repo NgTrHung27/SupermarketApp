@@ -63,8 +63,8 @@
             android:layout_gravity="center"
             android:src="@drawable/baseline_shopping_cart_24" />
 
-        <EditText
-            android:id="@+id/Detail_EDT1"
+        <Button
+            android:id="@+id/btn_Detail"
             android:layout_width="40dp"
             android:layout_height="match_parent"
             android:layout_gravity="center"
