@@ -1,11 +1,11 @@
 package com.example.aeonmart_demo.Activity;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
-
-import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.aeonmart_demo.R;
 
@@ -39,6 +39,5 @@ public class DetailActivity extends AppCompatActivity {
     }
     private void themGioHang()
     {
-//        if (Utils.manggiohang)
     }
 }

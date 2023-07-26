@@ -1,69 +1,52 @@
 package com.example.aeonmart_demo.Model;
 
 public class GioHang {
-    String category;
-    String dicreption;
-    String image;
-    String masp;
-    String Name;
-    String origin;
-    int price;
+    int idsp;
+    String tensp;
+    long giasp;
+    String hinhsp;
+    int soluong;
 
     public GioHang() {
     }
-    public String getCategory() {
-        return category;
+
+    public int getIdsp() {
+        return idsp;
     }
 
-    public void setCategory(String category) {
-        this.category = category;
+    public void setIdsp(int idsp) {
+        this.idsp = idsp;
     }
 
-    public String getDicreption() {
-        return dicreption;
+    public String getTensp() {
+        return tensp;
     }
 
-    public void setDicreption(String dicreption) {
-        this.dicreption = dicreption;
+    public void setTensp(String tensp) {
+        this.tensp = tensp;
     }
 
-    public String getImage() {
-        return image;
+    public long getGiasp() {
+        return giasp;
     }
 
-    public void setImage(String image) {
-        this.image = image;
+    public void setGiasp(long giasp) {
+        this.giasp = giasp;
     }
 
-    public String getMasp() {
-        return masp;
+    public String getHinhsp() {
+        return hinhsp;
     }
 
-    public void setMasp(String masp) {
-        this.masp = masp;
+    public void setHinhsp(String hinhsp) {
+        this.hinhsp = hinhsp;
     }
 
-    public String getName() {
-        return Name;
+    public int getSoluong() {
+        return soluong;
     }
 
-    public void setName(String name) {
-        Name = name;
-    }
-
-    public String getOrigin() {
-        return origin;
-    }
-
-    public void setOrigin(String origin) {
-        this.origin = origin;
-    }
-
-    public int getPrice() {
-        return price;
-    }
-
-    public void setPrice(int price) {
-        this.price = price;
+    public void setSoluong(int soluong) {
+        this.soluong = soluong;
     }
 }
