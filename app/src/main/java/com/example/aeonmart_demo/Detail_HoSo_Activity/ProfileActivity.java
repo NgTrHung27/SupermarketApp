@@ -23,6 +23,15 @@ public class ProfileActivity extends AppCompatActivity {
             public void onClick(View view) {
                 // Xử lý sự kiện khi TextView "Đăng xuất" được nhấn
                 logoutAndNavigateToSignIn();
+
+            }
+        });
+        TextView changePassTextView = findViewById(R.id.profile_Tv_DMK);
+        changePassTextView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // Xử lý sự kiện khi TextView "Đổi mật khẩu" được nhấn
+                navigateToChangePassword();
             }
         });
     }
@@ -36,5 +45,10 @@ public class ProfileActivity extends AppCompatActivity {
         Intent intent = new Intent(this, SignInActivity.class);
         startActivity(intent);
         finish(); // Đóng activity hiện tại để ngăn người dùng quay lại trang ProfileActivity sau khi đăng xuất
+    }
+
+    public void navigateToChangePassword() {
+        Intent intent = new Intent(this, ChangePassActivity.class);
+        startActivity(intent);
     }
 }

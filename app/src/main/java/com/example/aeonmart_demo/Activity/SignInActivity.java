@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.aeonmart_demo.Detail_HoSo_Activity.ProfileActivity;
 import com.example.aeonmart_demo.R;
 import com.google.firebase.FirebaseApiNotAvailableException;
 import com.google.firebase.auth.FirebaseAuth;
@@ -49,7 +50,7 @@ public class SignInActivity extends AppCompatActivity {
                             .addOnCompleteListener(SignInActivity.this, task -> {
                                 if (task.isSuccessful()) {
                                     // Đăng nhập thành công
-                                    Intent intent  = new  Intent(getApplicationContext(), Detail_Profile_Activity.class);
+                                    Intent intent  = new  Intent(getApplicationContext(), ProfileActivity.class);
                                     startActivity(intent);
                                     Toast.makeText(SignInActivity.this, "Đăng nhập thành công!", Toast.LENGTH_SHORT).show();
                                     // Ở đây, bạn có thể chuyển đến màn hình chính hoặc thực hiện các hành động khác sau khi đăng nhập thành công
