@@ -11,6 +11,21 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
+        <com.google.android.material.appbar.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/mau_xam"
+            android:backgroundTint="@color/xanh_nuoc_bien_dam"/>
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/tool_bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="3dp"
+            android:background="@color/xanh_la_cay_dam"
+            android:backgroundTint="@color/mau_xam"
+            app:titleTextColor="@color/white" />
+
         <ScrollView
             android:scrollbars="none"
             android:layout_width="match_parent"
@@ -222,7 +237,7 @@
                     android:layout_marginTop="10dp"
                     android:layout_marginLeft="10dp"/>
                 <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/Home_ProductListView"
+                    android:id="@+id/rv_Home"
                     android:layout_marginTop="10dp"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -233,5 +248,16 @@
             </androidx.constraintlayout.widget.ConstraintLayout>
         </ScrollView>
     </LinearLayout>
-
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/VoucList_bottomnav"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@color/xanh_la_cay_dam"
+        app:itemIconTint="@color/bottomnav_item_color"
+        app:labelVisibilityMode="unlabeled"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:menu="@menu/bottom_nav" />
 </androidx.constraintlayout.widget.ConstraintLayout>
