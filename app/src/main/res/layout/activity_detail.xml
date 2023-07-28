@@ -10,13 +10,29 @@
     <RelativeLayout
         android:layout_width="410dp"
         android:layout_height="300dp">
-
+    />
         <ImageView
             android:id="@+id/Detail_Img1"
             android:layout_width="410dp"
             android:layout_height="300dp"
             android:background="@color/xanh_la_cay_dam"
             android:src="@drawable/iphone14promax" />
+
+        <ImageView
+            android:id="@+id/img_cart"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/baseline_shopping_cart_24"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="360dp"/>
+        <com.nex3z.notificationbadge.NotificationBadge
+            android:id="@+id/notific"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="380dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            />
     </RelativeLayout>
 
     <TextView

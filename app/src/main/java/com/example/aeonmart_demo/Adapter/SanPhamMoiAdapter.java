@@ -1,5 +1,4 @@
 package com.example.aeonmart_demo.Adapter;
-
 import android.content.Context;
 import android.text.Layout;
 import android.view.LayoutInflater;
@@ -38,8 +37,8 @@ public class SanPhamMoiAdapter extends RecyclerView.Adapter<SanPhamMoiAdapter.My
     @Override
     public void onBindViewHolder(@NonNull SanPhamMoiAdapter.MyViewHolder holder, int position) {
             SanPhamMoi sanPhamMoi = array.get(position);
-            holder.txt_name.setText(SanPhamMoi.getName());
-            holder.txt_gia.setText(SanPhamMoi.getPrice());
+            holder.txt_name.setText(sanPhamMoi.getName());
+            holder.txt_gia.setText(sanPhamMoi.getPrice());
             Glide.with(context).load(sanPhamMoi.getImage()).into(holder.img);
     }
 
@@ -51,10 +50,9 @@ public class SanPhamMoiAdapter extends RecyclerView.Adapter<SanPhamMoiAdapter.My
     public class MyViewHolder extends RecyclerView.ViewHolder {
         ImageView img;
         TextView txt_gia,txt_name;
-
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
-            txt_gia = itemView.findViewById(R.id.txt_gia);
+            txt_gia = itemView.findViewById(R.id.Dt_gia);
             txt_name = itemView.findViewById(R.id.Detail_TV);
             img = itemView.findViewById(R.id.Detail_Img1);
         }

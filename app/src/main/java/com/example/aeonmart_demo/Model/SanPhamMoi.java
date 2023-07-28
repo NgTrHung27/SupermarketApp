@@ -1,6 +1,7 @@
 package com.example.aeonmart_demo.Model;
 
 public class SanPhamMoi {
+
     String category;
     String dicreption;
     String image;
@@ -56,7 +57,7 @@ public class SanPhamMoi {
         this.origin = origin;
     }
 
-    public String getPrice() {
+    public int getPrice() {
         return price;
     }
 
