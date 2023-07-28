@@ -75,6 +75,7 @@ public class HomeActivity extends AppCompatActivity {
         rv_Home.isLayoutSuppressed();
         rv_Home.setAdapter(homeAdapter);
         rv_Home.setLayoutManager(new GridLayoutManager(this,2));
+
         loadSlider();
         loadProductdata();
     }

@@ -110,7 +110,7 @@
             android:layout_gravity="center"
             android:src="@drawable/baseline_shopping_cart_24" />
         <Button
-            android:id="@+id/btn_Detail"
+            android:id="@+id/btn_ThemGioHang"
             android:layout_width="40dp"
             android:layout_height="match_parent"
             android:layout_gravity="center"
@@ -125,14 +125,15 @@
             android:textSize="20dp"
             android:autofillHints="" />
     </LinearLayout>
-    <ImageView
-        android:id="@+id/Detail_Img2"
+
+    <CheckBox
+        android:id="@+id/cbHeart"
         android:layout_width="50dp"
         android:layout_height="60dp"
-        android:layout_marginTop="-5dp"
-        android:src="@drawable/baseline_favorite_border_24"
         android:layout_marginLeft="30dp"
-        />
+        android:layout_marginTop="5dp"
+        android:button="@drawable/selector_wishlist_item" />
+
 </LinearLayout>
 <LinearLayout
     android:id="@+id/Detail_Linear2"
@@ -143,14 +144,13 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="15dp"
         android:gravity="center_vertical"
         android:orientation="horizontal">
 
         <TextView
-            android:layout_width="120dp"
-            android:layout_height="30dp"
-            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:paddingStart="8dp"
             android:paddingEnd="8dp"
             android:text="Mã sản phẩm:"
@@ -158,10 +158,9 @@
 
         <TextView
             android:id="@+id/Dt_MSP"
-            android:layout_width="100dp"
-            android:layout_height="30dp"
-            android:paddingStart="8dp"
-            android:paddingEnd="8dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
             android:text="000000"
             android:textColor="@color/xanh_la_cay_dam"
             android:textSize="16sp" />
@@ -169,25 +168,20 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="15dp"
         android:gravity="center_vertical"
         android:orientation="horizontal">
         <TextView
-            android:layout_width="80dp"
-            android:layout_height="30dp"
-            android:layout_weight="1"
-            android:paddingStart="8dp"
-            android:paddingEnd="8dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
             android:text="Xuất xứ:"
             android:textSize="16sp" />
-
-
         <TextView
             android:id="@+id/Dt_XS"
-            android:layout_width="80dp"
-            android:layout_height="30dp"
-            android:paddingStart="8dp"
-            android:paddingEnd="8dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
             android:text="Mỹ"
             android:textColor="@color/xanh_la_cay_dam"
             android:textSize="16sp" />
@@ -196,23 +190,23 @@
 <LinearLayout
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:id="@+id/Detail_Linear3">
+    android:id="@+id/Detail_Linear3"
+    android:layout_marginTop="10dp">
     <TextView
         android:layout_width="70dp"
         android:layout_height="30dp"
         android:layout_weight="1"
         android:paddingStart="8dp"
         android:paddingEnd="8dp"
-        android:text="Mô tả:"
+        android:text="Mô tả:   "
         android:textSize="16sp"/>
     <TextView
         android:id="@+id/Dt_mota"
-        android:layout_width="250dp"
-        android:layout_height="180dp"
-        android:layout_weight="1"
-        android:paddingStart="8dp"
-        android:paddingEnd="8dp"
-        android:text="Thiết kế và chất liệu: Khung viền thép không gỉ và mặt lưng kính. -Kích thước, trọng lượng: 160 x 77.6 x 7.85 mm, trọng lượng 240 gam. - Màn hình: OLED 6.7 inch, công nghệ màn hình Super retina XDR. Độ phân giải 2796 x 1290 Pixels, tần số quét 120Hz.1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+       android:layout_marginLeft="20dp"
+        android:text="TEST"
         android:textSize="16sp"
         android:textColor="@color/xanh_la_cay_dam"
         />

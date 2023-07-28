@@ -1,10 +1,7 @@
 package com.example.aeonmart_demo.Adapter;
 
-import static android.graphics.BitmapFactory.decodeFile;
-
 import android.app.Activity;
 import android.content.Intent;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,18 +12,11 @@ import androidx.annotation.NonNull;
 import androidx.core.app.ActivityOptionsCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.example.aeonmart_demo.Activity.DetailActivity;
 import com.example.aeonmart_demo.Model.HomeModel;
 import com.example.aeonmart_demo.R;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.storage.FileDownloadTask;
-import com.google.firebase.storage.FirebaseStorage;
-import com.google.firebase.storage.StorageReference;
 
-import java.io.File;
-import java.io.IOException;
 import java.util.ArrayList;
 
 public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.MyVH>{
@@ -48,35 +38,18 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.MyVH>{
     public void onBindViewHolder(@NonNull HomeAdapter.MyVH holder, int position) {
         HomeModel homeModel = homeModels.get(position);
         holder.textViewCart.setText(homeModel.getName());
-        StorageReference storageReference = FirebaseStorage.getInstance().getReference();
-        StorageReference pathReference = storageReference.child(homeModel.getImage());
-
-        try{
-            File file = File.createTempFile("image", "jpg");
-            pathReference.getFile(file)
-                    .addOnCompleteListener(new OnCompleteListener<FileDownloadTask.TaskSnapshot>() {
-                        @Override
-                        public void onComplete(@NonNull Task<FileDownloadTask.TaskSnapshot> task) {
-                            holder.ProductCartView.setImageBitmap(decodeFile(file.getPath()));
-                        }
-                    })
-                    .addOnFailureListener(new OnFailureListener() {
-                        @Override
-                        public void onFailure(@NonNull Exception e) {
-                            Log.d("ABC",e.getMessage());
-                        }
-                    });
-        }catch (IOException e)
-        {
-            throw new RuntimeException();
-        }
-
+        String imageUrl = homeModel.getImage();
+        Glide.with(holder.ProductCartView.getContext())
+                .load(imageUrl)
+                .into(holder.ProductCartView);
         holder.ProductCartView.setOnClickListener(view -> {
             //when click send data to details activity
             Intent sendData2Detail = new Intent(holder.ProductCartView.getContext(), DetailActivity.class);
             sendData2Detail.putExtra("category",homeModels.get(position).getCategory());
             sendData2Detail.putExtra("description",homeModels.get(position).getDescription());
+            sendData2Detail.putExtra("image",homeModels.get(position).getImage());
             sendData2Detail.putExtra("masp",homeModels.get(position).getMaSp());
+            sendData2Detail.putExtra("name",homeModels.get(position).getName());
             sendData2Detail.putExtra("origin",homeModels.get(position).getOrigin());
             sendData2Detail.putExtra("price",homeModels.get(position).getPrice());
             sendData2Detail.putExtra("rate",homeModels.get(position).getRate());
