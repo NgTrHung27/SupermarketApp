@@ -19,18 +19,20 @@
         <activity
             android:name=".Activity.HomeActivity"
             android:exported="true">
-                <intent-filter>
-                        <action android:name="android.intent.action.MAIN" />
+<!--                <intent-filter>-->
+<!--                        <action android:name="android.intent.action.MAIN" />-->
 
-                        <category android:name="android.intent.category.LAUNCHER" />
-                </intent-filter>
+<!--                        <category android:name="android.intent.category.LAUNCHER" />-->
+<!--                </intent-filter>-->
         </activity>
         <activity
             android:name=".Activity.XacNhanThanhToanActivity"
             android:exported="false" />
         <activity
             android:name=".Activity.ChinhSuaHoSoActivity"
-            android:exported="false" />
+            android:exported="true">
+
+        </activity>
         <activity
             android:name=".Activity.GioHangActivity"
             android:exported="false" />
@@ -64,6 +66,11 @@
         <activity
             android:name=".Activity.SignInActivity"
             android:exported="true">
+                <intent-filter>
+                        <action android:name="android.intent.action.MAIN" />
+
+                        <category android:name="android.intent.category.LAUNCHER" />
+                </intent-filter>
         </activity>
         <activity
             android:name=".Detail_HoSo_Activity.ProfileActivity"
