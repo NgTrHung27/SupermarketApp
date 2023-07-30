@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <TextView
+        android:id="@+id/txt_name_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Name:"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/useritem_txt_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/txt_birth_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Birth:"
+        android:textColor="@android:color/darker_gray" />
+
+    <TextView
+        android:id="@+id/useritem_txt_birth"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/darker_gray" />
+
+    <TextView
+        android:id="@+id/txt_email_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Email:"
+        android:textColor="@android:color/darker_gray" />
+
+    <TextView
+        android:id="@+id/useritem_txt_email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/darker_gray" />
+
+    <TextView
+        android:id="@+id/txt_phone_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Phone:"
+        android:textColor="@android:color/darker_gray" />
+
+    <TextView
+        android:id="@+id/useritem_txt_phone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/darker_gray" />
+
+    <TextView
+        android:id="@+id/txt_cccd_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="CCCD:"
+        android:textColor="@android:color/darker_gray" />
+
+    <TextView
+        android:id="@+id/useritem_txt_cccd"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/darker_gray" />
+
+    <TextView
+        android:id="@+id/txt_address_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Address:"
+        android:textColor="@android:color/darker_gray" />
+
+    <TextView
+        android:id="@+id/useritem_txt_address"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/darker_gray" />
+
+    <TextView
+        android:id="@+id/txt_password_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Password:"
+        android:textColor="@android:color/darker_gray" />
+
+    <TextView
+        android:id="@+id/useritem_txt_password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/darker_gray" />
+    <TextView
+        android:id="@+id/txt_role_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Role:"
+        android:textColor="@android:color/darker_gray" />
+    <TextView
+        android:id="@+id/useritem_txt_role"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/darker_gray" />
+    <Button
+        android:id="@+id/useritem_btn_delete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Xóa"
+        android:layout_gravity="center"
+        android:layout_marginTop="8dp"
+        />
+</LinearLayout>

@@ -21,7 +21,7 @@ Button btn_profile_xemthongtin;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
 
-        btn_profile_xemthongtin=findViewById(R.id.profile_BTN_caidat);
+        btn_profile_xemthongtin=findViewById(R.id.profile_BTN_xemthongtin);
         TextView logoutTextView = findViewById(R.id.profile_Tv_DX);
         TextView deleteAccountTextView = findViewById(R.id.profile_Tv_XTK);
         deleteAccountTextView.setOnClickListener(new View.OnClickListener() {

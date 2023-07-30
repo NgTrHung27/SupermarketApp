@@ -46,7 +46,7 @@ public class RegisterActivity extends AppCompatActivity {
         edtPhone = findViewById(R.id.Regis_EdText_Sdt);
         edtCCCD = findViewById(R.id.Regis_EdText_CCCD);
         edtAddress = findViewById(R.id.Regis_EdText_diachi);
-        btnRegister = findViewById(R.id.profile_BTN_caidat);
+        btnRegister = findViewById(R.id.Regis_Button_dangky);
 
         // Thiết lập sự kiện click cho nút "Đăng ký"
         btnRegister.setOnClickListener(new View.OnClickListener() {
@@ -88,10 +88,11 @@ public class RegisterActivity extends AppCompatActivity {
         String cccd = edtCCCD.getText().toString();
         String address = edtAddress.getText().toString();
         String password = edtPassword.getText().toString();
+        String role="user";
 
 
         // Tạo một đối tượng User với thông tin người dùng
-        User user = new User(name, birth, email, password, phone, cccd, address);
+        User user = new User(name, birth, email, password, phone, cccd, address,role);
 
         // Lưu thông tin người dùng vào Firestore
         firestore.collection("users")

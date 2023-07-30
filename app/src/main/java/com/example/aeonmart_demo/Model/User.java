@@ -9,9 +9,18 @@ public class User {
     private String address;
     private String password;
 
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
+    }
+
+    private  String role;
 
     // Constructor
-    public User(String name, String birth, String email,String password, String phone, String cccd, String address) {
+    public User(String name, String birth, String email,String password, String phone, String cccd, String address,String role) {
         this.name = name;
         this.birth = birth;
         this.email = email;
@@ -19,6 +28,7 @@ public class User {
         this.phone = phone;
         this.cccd = cccd;
         this.address = address;
+        this.role=role;
     }
     public User() {
 

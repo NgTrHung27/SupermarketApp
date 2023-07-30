@@ -74,10 +74,10 @@
         android:layout_height="50dp"
         android:layout_gravity="center"
         android:layout_marginBottom="20dp"
-        android:text="Đăng nhập"
-        android:textSize="20dp"
         android:backgroundTint="@color/xanh_la_cay_dam"
-        />
+        android:text="Đăng nhập"
+        android:textSize="20dp"  />
+
     <TextView
         android:layout_width="120dp"
         android:layout_height="20dp"
