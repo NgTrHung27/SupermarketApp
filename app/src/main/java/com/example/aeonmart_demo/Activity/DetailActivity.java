@@ -98,62 +98,71 @@ public class DetailActivity extends AppCompatActivity {
         Price.setText(String.valueOf(price_DT));
         Glide.with(this).load(image_DT).into(ProductImg);
 
+        // Trong phương thức onClick của nút btnThemGH
         btnThemGH.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                int soLuong = Integer.parseInt(edtsoluong.getText().toString());
+                // Lấy số lượng từ EditText
+                String quantityStr = edtsoluong.getText().toString();
 
-                // Tạo một đối tượng GioHangModel mới với thông tin cần thiết
-                GioHangModel gioHangModel = new GioHangModel(image_DT, name_DT, price_DT, soLuong);
+                // Kiểm tra nếu số lượng rỗng hoặc không phải là một số
+                if (quantityStr.isEmpty() || !isNumeric(quantityStr)) {
+                    Toast.makeText(DetailActivity.this, "Không được để trống số lượng hoặc số lượng không hợp lệ", Toast.LENGTH_SHORT).show();
+                    return;
+                }
 
-                // Thêm đối tượng GioHangModel vào danh sách các mục trong giỏ hàng
-                GioHangActivity.cartItems.add(gioHangModel);
 
-                // Thông báo cho adapter biết rằng dữ liệu đã thay đổi
-                GioHangActivity.adapter.notifyDataSetChanged();
+                int quantity = Integer.parseInt(quantityStr);
 
-                // Lưu dữ liệu vào Firestore
-                saveToFirestore(gioHangModel);
+                // Kiểm tra số lượng phải lớn hơn 0
+                if (quantity <= 0) {
+                    Toast.makeText(DetailActivity.this, "Số lượng phải lớn hơn 0", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                // Tạo một đối tượng GioHangModel mới
+                GioHangModel gioHangModel = new GioHangModel();
+                gioHangModel.setProductImgUrl(image_DT);
+                gioHangModel.setProductName(name_DT);
+                gioHangModel.setProductPrice(price_DT);
+                gioHangModel.setProductQuantity(quantity);
+
+                // Gọi hàm để đưa dữ liệu lên Firestore
+                addProductToFirestore(gioHangModel);
             }
         });
+
     }
 
     // Để thêm sản phẩm vào collection "cart" trên Firestore
-    private void saveToFirestore(GioHangModel gioHangModel) {
-        // Get a reference to the "cart" collection in your Firestore database
-        CollectionReference gioHangCollectionRef = db.collection("cart");
+    private void addProductToFirestore(GioHangModel gioHangModel) {
+        // Lấy tham chiếu đến collection "gio_hang" trong Firestore
+        CollectionReference gioHangRef = db.collection("cart");
 
-        // Tạo một tài liệu mới với một ID tùy ý
-        DocumentReference newCartItemRef = gioHangCollectionRef.document();
-
-        // Create a map to represent the data you want to store
-        Map<String, Object> cartItemData = new HashMap<>();
-        cartItemData.put("image", gioHangModel.getImage());
-        cartItemData.put("name", gioHangModel.getName());
-        cartItemData.put("price", gioHangModel.getPrice());
-        cartItemData.put("quantity", gioHangModel.getSoLuong());
-
-        // Sử dụng set() để thêm dữ liệu vào tài liệu với ID tùy ý
-        newCartItemRef.set(cartItemData)
+        // Thêm thông tin sản phẩm vào Firestore với tên tùy chọn (chẳng hạn mã sản phẩm làm tên)
+        gioHangRef.document(masp_DT).set(gioHangModel.toMap())
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void aVoid) {
-                        // Data saved successfully to Firestore
-                        // You can add any additional handling you want here
-                        Toast.makeText(DetailActivity.this, "Đã thêm vào giỏ hàng", Toast.LENGTH_SHORT).show();
-
+                        // Thêm thành công
+                        Toast.makeText(DetailActivity.this, "Thêm vào giỏ hàng thành công!", Toast.LENGTH_SHORT).show();
                     }
                 })
                 .addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
-                        // Failed to save data to Firestore
-                        // You can add any error handling you want here
-                        Toast.makeText(DetailActivity.this, "Lỗi khi lưu dữ liệu vào Firestore", Toast.LENGTH_SHORT).show();
-
+                        // Xảy ra lỗi
+                        Toast.makeText(DetailActivity.this, "Lỗi khi thêm vào giỏ hàng: " + e.getMessage(), Toast.LENGTH_SHORT).show();
                     }
                 });
     }
 
+    private boolean isNumeric(String str) {
+        try {
+            Integer.parseInt(str);
+            return true;
+        } catch (NumberFormatException e) {
+            return false;
+        }
+    }
 
 }

@@ -142,7 +142,7 @@
                 android:drawablePadding="10dp"
                 android:gravity="start|center_vertical"
                 android:padding="10dp"
-                android:text="đổi mật khẩu"
+                android:text="Đổi mật khẩu"
                 android:textSize="20dp"
                 android:textStyle="bold" />
 

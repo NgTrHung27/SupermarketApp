@@ -69,14 +69,12 @@
             android:paddingLeft="12dp"
             android:paddingRight="12dp"/>
     </LinearLayout>
-
     <ImageView
         android:id="@+id/imageView2"
         android:layout_width="match_parent"
         android:layout_height="363dp"
         app:srcCompat="@drawable/vong_quay_thuong"
         android:padding="12dp"/>
-
     <TextView
         android:id="@+id/textView8"
         android:layout_width="wrap_content"

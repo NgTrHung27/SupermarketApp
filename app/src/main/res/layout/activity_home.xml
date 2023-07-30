@@ -48,6 +48,7 @@
                     app:sliderIndicatorSelectedColor="#FF3D00"
                     app:sliderIndicatorUnselectedColor="#987979"
                     tools:ignore="MissingConstraints"/>
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"

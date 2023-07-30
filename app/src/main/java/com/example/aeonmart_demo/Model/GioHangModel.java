@@ -1,52 +1,65 @@
 package com.example.aeonmart_demo.Model;
 
 import java.io.Serializable;
+import java.util.HashMap;
+import java.util.Map;
 
-public class GioHangModel implements Serializable {
-    String Image;
-    String Name;
-    Double Price;
-    int SoLuong;
+public class GioHangModel {
+    private String productImgUrl;
+    private String productName;
+    private double productPrice;
+    private int productQuantity;
 
-    public GioHangModel(String image, String name, Double price, int soLuong) {
-        Image = image;
-        Name = name;
-        Price = price;
-        SoLuong = soLuong;
+    public GioHangModel(String productImgUrl, String productName, double productPrice, int productQuantity) {
+        this.productImgUrl = productImgUrl;
+        this.productName = productName;
+        this.productPrice = productPrice;
+        this.productQuantity = productQuantity;
     }
 
     public GioHangModel() {
     }
 
-    public String getImage() {
-        return Image;
+    public String getProductImgUrl() {
+        return productImgUrl;
     }
 
-    public void setImage(String image) {
-        Image = image;
+    public void setProductImgUrl(String productImgUrl) {
+        this.productImgUrl = productImgUrl;
     }
 
-    public String getName() {
-        return Name;
+    public String getProductName() {
+        return productName;
     }
 
-    public void setName(String name) {
-        Name = name;
+    public void setProductName(String productName) {
+        this.productName = productName;
     }
 
-    public Double getPrice() {
-        return Price;
+    public double getProductPrice() {
+        return productPrice;
     }
 
-    public void setPrice(Double price) {
-        Price = price;
+    public void setProductPrice(double productPrice) {
+        this.productPrice = productPrice;
     }
 
-    public int getSoLuong() {
-        return SoLuong;
+    public int getProductQuantity() {
+        return productQuantity;
     }
 
-    public void setSoLuong(int soLuong) {
-        SoLuong = soLuong;
+    public void setProductQuantity(int productQuantity) {
+        this.productQuantity = productQuantity;
+    }
+
+    // Định nghĩa phương thức để chuyển đổi đối tượng GioHangModel thành HashMap
+    public Map<String, Object> toMap() {
+        Map<String, Object> map = new HashMap<>();
+        map.put("productImgUrl", productImgUrl);
+        map.put("productName", productName);
+        map.put("productPrice", productPrice);
+        map.put("productQuantity", productQuantity);
+        return map;
     }
 }
+
