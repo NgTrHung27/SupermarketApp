@@ -15,6 +15,7 @@ import com.example.aeonmart_demo.R;
 
 public class ProfileActivity extends AppCompatActivity {
 Button btn_profile_xemthongtin;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,12 +23,19 @@ Button btn_profile_xemthongtin;
 
         btn_profile_xemthongtin=findViewById(R.id.profile_BTN_caidat);
         TextView logoutTextView = findViewById(R.id.profile_Tv_DX);
+        TextView deleteAccountTextView = findViewById(R.id.profile_Tv_XTK);
+        deleteAccountTextView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // Gọi phương thức navigateToDeleteAccount() để chuyển hướng sang DeleteAccountActivity
+                navigateToDeleteAccount();
+            }
+        });
         logoutTextView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 // Xử lý sự kiện khi TextView "Đăng xuất" được nhấn
                 logoutAndNavigateToSignIn();
-
             }
         });
         TextView changePassTextView = findViewById(R.id.profile_Tv_DMK);
@@ -64,6 +72,10 @@ Button btn_profile_xemthongtin;
     }
     public void navigateToChangePassword() {
         Intent intent = new Intent(this, ChangePassActivity.class);
+        startActivity(intent);
+    }
+    private void navigateToDeleteAccount() {
+        Intent intent = new Intent(this, DeleteAccountActivity.class);
         startActivity(intent);
     }
 }

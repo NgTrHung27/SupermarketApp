@@ -117,7 +117,6 @@ public class ChinhSuaHoSoActivity extends AppCompatActivity {
         String newAddress = edtAddressEdit.getText().toString();
 
         // Cập nhật thông tin người dùng trong Firestore
-        // Cập nhật thông tin người dùng trong Firestore
         String email = firebaseAuth.getCurrentUser().getEmail();
         if (email != null) {
             DocumentReference userRef = firestore.collection("users").document(email);
@@ -143,11 +142,29 @@ public class ChinhSuaHoSoActivity extends AppCompatActivity {
                                         public void onComplete(@NonNull Task<Void> task) {
                                             if (task.isSuccessful()) {
                                                 // Cập nhật mật khẩu thành công trên Firebase Authentication
-                                                Toast.makeText(ChinhSuaHoSoActivity.this, "Cập nhật thông tin thành công", Toast.LENGTH_SHORT).show();
-                                                // Kết thúc activity và quay lại màn hình trước đó
-                                                Intent intent = new Intent();
-                                                setResult(RESULT_OK, intent);
-                                                finish();
+
+                                                // Lấy thông tin người dùng từ Firestore
+                                                String email = currentUser.getEmail();
+                                                if (email != null) {
+                                                    DocumentReference userRef = firestore.collection("users").document(email);
+                                                    userRef.update("password", newPassword)
+                                                            .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                                                @Override
+                                                                public void onComplete(@NonNull Task<Void> task) {
+                                                                    if (task.isSuccessful()) {
+                                                                        // Cập nhật mật khẩu mới vào Firestore thành công
+                                                                        Toast.makeText(ChinhSuaHoSoActivity.this, "Cập nhật thông tin thành công", Toast.LENGTH_SHORT).show();
+                                                                        // Kết thúc activity và quay lại màn hình trước đó
+                                                                        Intent intent = new Intent();
+                                                                        setResult(RESULT_OK, intent);
+                                                                        finish();
+                                                                    } else {
+                                                                        // Lỗi khi cập nhật mật khẩu vào Firestore
+                                                                        Toast.makeText(ChinhSuaHoSoActivity.this, "Lỗi: Không thể cập nhật mật khẩu trong Firestore", Toast.LENGTH_SHORT).show();
+                                                                    }
+                                                                }
+                                                            });
+                                                }
                                             } else {
                                                 // Lỗi khi cập nhật mật khẩu trên Firebase Authentication
                                                 Toast.makeText(ChinhSuaHoSoActivity.this, "Lỗi: Không thể cập nhật mật khẩu trên Firebase Authentication", Toast.LENGTH_SHORT).show();

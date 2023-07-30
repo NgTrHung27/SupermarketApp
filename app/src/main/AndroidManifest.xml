@@ -84,5 +84,6 @@
             android:exported="true" />
         <activity android:name=".Detail_HoSo_Activity.ChangePassActivity"
             android:label="Change Password"/>
+            <activity android:name=".Detail_HoSo_Activity.DeleteAccountActivity" />
     </application>
 </manifest>

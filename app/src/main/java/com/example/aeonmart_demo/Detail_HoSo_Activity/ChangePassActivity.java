@@ -13,21 +13,33 @@ import android.widget.Toast;
 import com.example.aeonmart_demo.Activity.SignInActivity;
 import com.example.aeonmart_demo.R;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.EmailAuthProvider;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 public class ChangePassActivity extends AppCompatActivity {
     private EditText etOldPassword;
     private EditText etNewPassword;
     private Button btnChangePassword;
+    private FirebaseAuth firebaseAuth;
+    private FirebaseFirestore firestore;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_change_pass);
+
+
+        firebaseAuth = FirebaseAuth.getInstance();
+        firestore = FirebaseFirestore.getInstance();
+
+
         etOldPassword = findViewById(R.id.etOldPassword);
         etNewPassword = findViewById(R.id.etNewPassword);
         btnChangePassword = findViewById(R.id.btnChangePassword);
@@ -63,6 +75,8 @@ public class ChangePassActivity extends AppCompatActivity {
                                             if (task.isSuccessful()) {
                                                 // Đổi mật khẩu thành công
                                                 Toast.makeText(ChangePassActivity.this, "Đổi mật khẩu thành công!", Toast.LENGTH_SHORT).show();
+                                                // Cập nhật mật khẩu mới vào Firestore
+                                                updatePasswordInFirestore(newPassword);
                                                 // Chuyển hướng về trang SignInActivity sau khi đổi mật khẩu thành công
                                                 Intent intent = new Intent(ChangePassActivity.this, SignInActivity.class);
                                                 startActivity(intent);
@@ -79,5 +93,30 @@ public class ChangePassActivity extends AppCompatActivity {
                         }
                     }
                 });
+    }
+
+    private void updatePasswordInFirestore(String newPassword) {
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        if (user != null) {
+            String email = user.getEmail();
+            if (email != null) {
+                DocumentReference userRef = FirebaseFirestore.getInstance().collection("users").document(email);
+                userRef.update("password", newPassword)
+                        .addOnSuccessListener(new OnSuccessListener<Void>() {
+                            @Override
+                            public void onSuccess(Void unused) {
+                                // Cập nhật mật khẩu mới vào Firestore thành công
+                                Toast.makeText(ChangePassActivity.this, "Cập nhật mật khẩu vào Firestore thành công!", Toast.LENGTH_SHORT).show();
+                            }
+                        })
+                        .addOnFailureListener(new OnFailureListener() {
+                            @Override
+                            public void onFailure(@NonNull Exception e) {
+                                // Cập nhật mật khẩu mới vào Firestore thất bại
+                                Toast.makeText(ChangePassActivity.this, "Cập nhật mật khẩu vào Firestore thất bại: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+                            }
+                        });
+            }
+        }
     }
 }
