@@ -1,31 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".Activity.ShopActivity">
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:padding="10dp"
-        android:orientation="horizontal">
-        <ImageView
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:background="@drawable/iconshop"
-            />
-        <TextView
-            android:id="@+id/Shop_tvNameshop"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingLeft="10dp"
-            android:layout_marginTop="-7dp"
-            android:textSize="20dp"
-            android:textStyle="bold"
-            android:text="Shop1"/>
-    </LinearLayout>
+    android:orientation="vertical">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -61,14 +39,7 @@
                 android:text="Áo thun MARVEL Craft Logo Graphic -Sơ mi Dáng Rộng 100% Cotton"
                 android:textSize="19sp"
                 />
-            <TextView
-                android:id="@+id/shop_tvSize"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:text="Nâu đậm,L"
-                android:textSize="20sp"
-                />
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -94,41 +65,4 @@
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-        <TextView
-            android:layout_marginTop="10dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:drawableLeft="@drawable/baseline_access_time_24"
-            android:paddingStart="20dp"
-            android:textSize="15sp"
-            android:drawablePadding="10dp"
-            android:text="Ngày vận chuyển"
-            />
-        <RelativeLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-            <ImageView
-
-                android:layout_marginLeft="80dp"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:scaleType="centerInside"
-                android:src="@drawable/freedelivery"
-                />
-        </RelativeLayout>
-        <TextView
-            android:id="@+id/Shop_tvDelivary"
-            android:layout_marginTop="15dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:textSize="15sp"
-            android:text="10.000đ"
-            />
-    </LinearLayout>
-
 </LinearLayout>

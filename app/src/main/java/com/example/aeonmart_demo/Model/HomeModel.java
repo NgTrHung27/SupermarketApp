@@ -22,6 +22,7 @@ public class HomeModel {
         Origin = origin;
         Price = price;
         Rate = rate;
+
     }
 
     public String getCategory() {

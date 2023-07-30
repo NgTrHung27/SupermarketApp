@@ -1,21 +1,33 @@
 package com.example.aeonmart_demo.Activity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.bumptech.glide.Glide;
+import com.example.aeonmart_demo.Model.GioHangModel;
 import com.example.aeonmart_demo.Model.HomeModel;
 import com.example.aeonmart_demo.R;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.nex3z.notificationbadge.NotificationBadge;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class DetailActivity extends AppCompatActivity {
     FirebaseFirestore db;
@@ -27,7 +39,6 @@ public class DetailActivity extends AppCompatActivity {
     CheckBox cbFav;
     NotificationBadge badge;
     EditText edtsoluong;
-    HomeModel homeModel;
 
     String category_DT;
     String description_DT;
@@ -37,12 +48,24 @@ public class DetailActivity extends AppCompatActivity {
     String origin_DT;
     Double price_DT;
     String rate_DT;
+    ImageView imgcart;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail);
-//        initData();
-//        initControl();
+
+        // Khởi tạo đối tượng Firestore một lần duy nhất
+        db = FirebaseFirestore.getInstance();
+
+        imgcart = findViewById(R.id.img_cart);
+        imgcart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(DetailActivity.this, GioHangActivity.class);
+                startActivity(i);
+            }
+        });
 
         ProductImg = findViewById(R.id.Detail_Img1);
 
@@ -75,34 +98,62 @@ public class DetailActivity extends AppCompatActivity {
         Price.setText(String.valueOf(price_DT));
         Glide.with(this).load(image_DT).into(ProductImg);
 
-//    private void initControl() {
-//        btnThemGH.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                themGioHang();
-//            }
-//        });
-//    }
+        btnThemGH.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int soLuong = Integer.parseInt(edtsoluong.getText().toString());
 
+                // Tạo một đối tượng GioHangModel mới với thông tin cần thiết
+                GioHangModel gioHangModel = new GioHangModel(image_DT, name_DT, price_DT, soLuong);
 
-//    private void initData() {
-//        sanPhamMoi = (HomeModel) getIntent().getSerializableExtra("chitiet");
-//        name.setText(sanPhamMoi.getName());
-//        mota.setText(sanPhamMoi.getDescription());
-//        sx.setText(sanPhamMoi.getOrigin());
-//        masp.setText(sanPhamMoi.getMaSp());
-//        Glide.with(getApplicationContext()).load(sanPhamMoi.getImage()).into(img);
-//        DecimalFormat decimalFormat = new DecimalFormat("###,###,###");
-//        gia.setText("Gia: "+decimalFormat.format(Double.parseDouble(String.valueOf(sanPhamMoi.getPrice())))+"D");
-//    }
-//    private void themGioHang()
-//    {
-//        int soluong = Integer.parseInt(toString());
-//        long gia = Long.parseLong(String.valueOf(sanPhamMoi.getPrice()))*soluong;
-//        GioHang gioHang = new GioHang();
-//        gioHang.setGiasp(gia);
-//        gioHang.setSoluong(soluong);
-//        gioHang.setHinhsp(sanPhamMoi.getImage());
-//    }
+                // Thêm đối tượng GioHangModel vào danh sách các mục trong giỏ hàng
+                GioHangActivity.cartItems.add(gioHangModel);
+
+                // Thông báo cho adapter biết rằng dữ liệu đã thay đổi
+                GioHangActivity.adapter.notifyDataSetChanged();
+
+                // Lưu dữ liệu vào Firestore
+                saveToFirestore(gioHangModel);
+            }
+        });
     }
+
+    // Để thêm sản phẩm vào collection "cart" trên Firestore
+    private void saveToFirestore(GioHangModel gioHangModel) {
+        // Get a reference to the "cart" collection in your Firestore database
+        CollectionReference gioHangCollectionRef = db.collection("cart");
+
+        // Tạo một tài liệu mới với một ID tùy ý
+        DocumentReference newCartItemRef = gioHangCollectionRef.document();
+
+        // Create a map to represent the data you want to store
+        Map<String, Object> cartItemData = new HashMap<>();
+        cartItemData.put("image", gioHangModel.getImage());
+        cartItemData.put("name", gioHangModel.getName());
+        cartItemData.put("price", gioHangModel.getPrice());
+        cartItemData.put("quantity", gioHangModel.getSoLuong());
+
+        // Sử dụng set() để thêm dữ liệu vào tài liệu với ID tùy ý
+        newCartItemRef.set(cartItemData)
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void aVoid) {
+                        // Data saved successfully to Firestore
+                        // You can add any additional handling you want here
+                        Toast.makeText(DetailActivity.this, "Đã thêm vào giỏ hàng", Toast.LENGTH_SHORT).show();
+
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        // Failed to save data to Firestore
+                        // You can add any error handling you want here
+                        Toast.makeText(DetailActivity.this, "Lỗi khi lưu dữ liệu vào Firestore", Toast.LENGTH_SHORT).show();
+
+                    }
+                });
+    }
+
+
 }
