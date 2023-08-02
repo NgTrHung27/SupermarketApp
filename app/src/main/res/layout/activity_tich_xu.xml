@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activity.TichXuActivity">
+    <ImageView
+        android:id="@+id/TichXu_IMG"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/round_background"
+        android:scaleType="centerCrop"
+        android:layout_marginTop="30dp"
+        />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerInParent="true">
+
+        <!-- Cái Rectangle -->
+        <RelativeLayout
+            android:layout_width="350dp"
+            android:layout_height="600dp"
+            android:layout_centerInParent="true"
+            android:background="#FF0000"
+            android:backgroundTint="#993B3B">
+
+
+
+            <TextView
+                android:id="@+id/TichXu_TV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="45dp"
+                android:gravity="center"
+                android:text="Luong Phu Cuong"
+                android:textColor="@color/white"
+                android:textSize="25sp"
+
+                />
+
+            <LinearLayout
+                android:id="@+id/TichXu_LN"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:layout_below="@+id/TichXu_TV"
+                android:layout_centerHorizontal="true">
+
+                <TextView
+                    android:layout_width="60dp"
+                    android:layout_height="30dp"
+                    android:text="Số xu:"
+                    android:textSize="20sp"
+                    android:textColor="@color/white" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:text="50"
+                    android:textSize="20sp"
+                    android:textColor="@color/white" />
+            </LinearLayout>
+            <!-- ImageView để chèn hình vào Rectangle -->
+            <ImageView
+                android:layout_width="300dp"
+                android:layout_height="300dp"
+                android:layout_centerInParent="true"
+                android:src="@drawable/qr1" />
+        </RelativeLayout>
+    </RelativeLayout>
+</RelativeLayout>
