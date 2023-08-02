@@ -20,9 +20,11 @@ import com.google.firebase.auth.FirebaseAuthException;
 import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
 import com.google.firebase.auth.FirebaseAuthInvalidUserException;
 
+import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
 
 public class SignInActivity extends AppCompatActivity {
     private EditText edtEmail, edtPassword;
@@ -43,6 +45,7 @@ public class SignInActivity extends AppCompatActivity {
         btnSignUp = findViewById(R.id.Signin_BTN_SignUp);
         btnsigin=findViewById(R.id.Signin_BTN_Signin);
         // Xử lý sự kiện khi người dùng nhấn nút Đăng nhập
+        clearCartData();
 
         btnsigin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -88,6 +91,29 @@ public class SignInActivity extends AppCompatActivity {
             }
         });
     }
+
+    private void clearCartData() {
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+        CollectionReference cartRef = db.collection("cart");
+
+        cartRef.get().addOnCompleteListener(task -> {
+            if (task.isSuccessful()) {
+                for (QueryDocumentSnapshot document : task.getResult()) {
+                    // Xoá từng tài liệu trong collection "cart"
+                    document.getReference().delete()
+                            .addOnSuccessListener(aVoid -> {
+                                // Xử lý khi xoá thành công (tùy chọn)
+                            })
+                            .addOnFailureListener(e -> {
+                                // Xử lý khi xoá thất bại (tùy chọn)
+                            });
+                }
+            } else {
+                // Xử lý khi không thể lấy dữ liệu giỏ hàng (tùy chọn)
+            }
+        });
+    }
+
     // Hàm kiểm tra tính hợp lệ của email và password
     private boolean isValid(String email, String password) {
         // Kiểm tra logic đăng nhập hợp lệ của bạn tại đây (ví dụ: không để trống, độ dài tối thiểu, v.v.)
