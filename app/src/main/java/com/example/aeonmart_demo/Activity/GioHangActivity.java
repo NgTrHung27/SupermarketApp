@@ -1,6 +1,7 @@
 package com.example.aeonmart_demo.Activity;
 
 import android.os.Bundle;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -26,7 +27,7 @@ public class GioHangActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private GioHangAdapter adapter;
     private List<GioHangModel> gioHangList;
-
+    private TextView tvTongGia,TextGioHang; // Add this TextView
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,6 +36,7 @@ public class GioHangActivity extends AppCompatActivity {
         db = FirebaseFirestore.getInstance();
         gioHangList = new ArrayList<>();
         recyclerView = findViewById(R.id.GH_rcv);
+        tvTongGia = findViewById(R.id.TotalCart); // Initialize the TextView
 
         // Set up RecyclerView
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -43,6 +45,24 @@ public class GioHangActivity extends AppCompatActivity {
 
         // Load data from Firestore and update the RecyclerView
         loadDataFromFirestore();
+
+        // Update total price when data changes in the adapter
+        adapter.registerAdapterDataObserver(new RecyclerView.AdapterDataObserver() {
+            @Override
+            public void onChanged() {
+                super.onChanged();
+                double totalPrice = calculateTotalPrice();
+                tvTongGia.setText(String.format("%sĐ", totalPrice));
+            }
+        });
+    }
+
+    private double calculateTotalPrice() {
+        double totalPrice = 0.0;
+        for (GioHangModel gioHangModel : gioHangList) {
+            totalPrice += gioHangModel.getProductPrice() * gioHangModel.getProductQuantity();
+        }
+        return totalPrice;
     }
 
     private void loadDataFromFirestore() {

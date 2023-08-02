@@ -102,7 +102,7 @@ public class SignInActivity extends AppCompatActivity {
                     // Xoá từng tài liệu trong collection "cart"
                     document.getReference().delete()
                             .addOnSuccessListener(aVoid -> {
-                                // Xử lý khi xoá thành công (tùy chọn)
+                                // Xử lý khi xoá thành công (tùy chọn)a
                             })
                             .addOnFailureListener(e -> {
                                 // Xử lý khi xoá thất bại (tùy chọn)

@@ -20,6 +20,16 @@ public class GioHangAdapter extends RecyclerView.Adapter<GioHangAdapter.GioHangV
 
     private Context context;
     private List<GioHangModel> gioHangList;
+    private double totalPrice = 0.0;
+
+    // Method to calculate total price of all items in the cart
+    public double getTotalPrice() {
+        totalPrice = 0.0;
+        for (GioHangModel gioHangModel : gioHangList) {
+            totalPrice += gioHangModel.getProductPrice() * gioHangModel.getProductQuantity();
+        }
+        return totalPrice;
+    }
 
     public GioHangAdapter(Context context, List<GioHangModel> gioHangList) {
         this.context = context;
@@ -39,9 +49,11 @@ public class GioHangAdapter extends RecyclerView.Adapter<GioHangAdapter.GioHangV
 
         // Load product image using Glide
         Glide.with(context).load(gioHangModel.getProductImgUrl()).into(holder.itemProductImg);
+
+        // Calculate total price for each item (price * quantity)
         double totalPrice = gioHangModel.getProductPrice() * gioHangModel.getProductQuantity();
         holder.itemProductName.setText(gioHangModel.getProductName());
-        holder.itemProductPrice.setText(String.valueOf(totalPrice));
+        holder.itemProductPrice.setText(String.format("%sĐ", gioHangModel.getProductPrice()));
         holder.itemProductQuantity.setText(String.format("x%s", gioHangModel.getProductQuantity()));
 
         // Add more bindings for other product details if needed
