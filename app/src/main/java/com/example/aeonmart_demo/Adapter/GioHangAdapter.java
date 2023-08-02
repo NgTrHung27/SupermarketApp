@@ -17,9 +17,11 @@ import com.example.aeonmart_demo.R;
 import java.util.List;
 
 public class GioHangAdapter extends RecyclerView.Adapter<GioHangAdapter.GioHangViewHolder> {
-
-    private Context context;
     private List<GioHangModel> gioHangList;
+    public List<GioHangModel> getGioHangList() {
+        return gioHangList;
+    }
+    private Context context;
     private double totalPrice = 0.0;
 
     // Method to calculate total price of all items in the cart

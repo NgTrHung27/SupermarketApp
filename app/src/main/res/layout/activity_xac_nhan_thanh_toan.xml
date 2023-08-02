@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".Activity.XacNhanThanhToan">
+    tools:context=".Activity.XacNhanThanhToanActivity">
 
     <TextView
         android:id="@+id/textView2"
@@ -56,6 +56,7 @@
             android:textStyle="normal"
             />
     </LinearLayout>
+
     <androidx.recyclerview.widget.RecyclerView
         android:layout_marginLeft="10dp"
         android:layout_marginTop="20dp"
@@ -130,7 +131,7 @@
             android:textSize="20sp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="mặt hàng, Tổng cộng:"
+            android:text="Tổng cộng:"
             />
         <TextView
             android:id="@+id/XNTT_tvGia"
@@ -138,24 +139,19 @@
             android:layout_marginLeft="10dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="200.000"
-            android:textStyle="bold"
-            />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="đ"
+            android:text="200.000đ"
             android:textStyle="bold"
             />
     </LinearLayout>
+
     <Button
-        android:layout_marginTop="50dp"
         android:layout_width="251dp"
         android:layout_height="50dp"
         android:layout_gravity="center"
-        android:text="XÁC NHẬN THANH TOÁN"
+        android:layout_marginTop="50dp"
         android:backgroundTint="#DB0000"
-        />
+        android:text="XÁC NHẬN THANH TOÁN" />
+
     <LinearLayout
         android:layout_marginTop="10dp"
         android:layout_width="wrap_content"

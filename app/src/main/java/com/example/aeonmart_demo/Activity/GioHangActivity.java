@@ -1,6 +1,9 @@
 package com.example.aeonmart_demo.Activity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -18,6 +21,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -55,6 +59,20 @@ public class GioHangActivity extends AppCompatActivity {
                 tvTongGia.setText(String.format("%sĐ", totalPrice));
             }
         });
+
+
+        Button btnThanhToan = findViewById(R.id.GH_btnThanhToan);
+        btnThanhToan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                List<GioHangModel> gioHangList = adapter.getGioHangList();
+                // Tạo Intent để bắt đầu XacNhanThanhToanActivity và truyền dữ liệu thông qua Intent
+                Intent intent = new Intent(GioHangActivity.this, XacNhanThanhToanActivity.class);
+                intent.putExtra("gioHangList", (Serializable) gioHangList);
+                startActivity(intent);
+            }
+        });
+
     }
 
     private double calculateTotalPrice() {

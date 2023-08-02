@@ -1,10 +1,9 @@
 package com.example.aeonmart_demo.Model;
-
 import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
 
-public class GioHangModel {
+public class GioHangModel implements Serializable  {
     private String productImgUrl;
     private String productName;
     private double productPrice;

@@ -17,6 +17,9 @@
             android:name=".Activity.NotificationActivity"
             android:exported="false" />
         <activity
+            android:name=".Activity.XacNhanThanhToanActivity"
+            android:exported="false" />
+        <activity
             android:name=".Activity.TichXuActivity"
             android:exported="false" />
         <activity
@@ -31,11 +34,6 @@
         <activity
             android:name=".Activity.HomeActivity"
             android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".Activity.ChinhSuaHoSoActivity"
@@ -63,7 +61,14 @@
             android:exported="true" />
         <activity
             android:name=".Activity.SignInActivity"
-            android:exported="true" />
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
         <activity
             android:name=".Activity.RegisterActivity"
             android:exported="true" />
@@ -77,5 +82,6 @@
             android:name=".Activity.TraHang_Activity"
             android:exported="true"></activity>
     </application>
+
 
 </manifest>

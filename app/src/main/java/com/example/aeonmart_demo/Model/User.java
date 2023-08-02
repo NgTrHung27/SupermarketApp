@@ -5,8 +5,13 @@ public class User {
     private String birth;
     private String email;
     private String phone;
+
+    public static void setAddress(String address) {
+        User.address = address;
+    }
+
     private String cccd;
-    private String address;
+    private static String address;
     private String password;
 
     public String getRole() {
@@ -82,11 +87,9 @@ public class User {
         this.cccd = cccd;
     }
 
-    public String getAddress() {
+    public static String getAddress() {
         return address;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
-    }
+
 }
