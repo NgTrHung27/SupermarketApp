@@ -8,22 +8,22 @@
     tools:context=".Admin.QuanlysanphamActivity">
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/quanlysanpham_txt_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="TextView" />
+        android:text="Quản lý sản phẩm" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/quanlysanpham_btn_them"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Button" />
+        android:text="Thêm sản phẩm" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/quanlysanpham_btn_xóa"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Button" />
+        android:text="Xóa" />
 
     <Button
         android:id="@+id/button4"
@@ -32,6 +32,7 @@
         android:text="Button" />
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_quanlysanpham"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 </LinearLayout>
