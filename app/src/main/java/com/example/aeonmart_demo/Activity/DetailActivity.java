@@ -166,8 +166,8 @@ public class DetailActivity extends AppCompatActivity {
 
                 if (isChecked) {
                     // Người dùng đã click vào checkbox, lưu dữ liệu lên Firestore
-                    FavouriteModel favouriteModel = new FavouriteModel(image_DT, name_DT, UUID_Favorite);
-                    favouriteModel.setId(UUID_Favorite); // Thêm ID vào đối tượng FavouriteModel
+                    FavouriteModel favouriteModel = new FavouriteModel(image_DT, name_DT, masp_DT);
+                    favouriteModel.setId(masp_DT); // Thêm ID vào đối tượng FavouriteModel
                     saveFavToFireStore(favouriteModel);
                     Toast.makeText(buttonView.getContext(), "Đã thêm vào danh sách yêu thích", Toast.LENGTH_SHORT).show();
                 } else {
