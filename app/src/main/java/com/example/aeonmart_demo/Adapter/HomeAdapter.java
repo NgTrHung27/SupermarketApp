@@ -1,10 +1,12 @@
 package com.example.aeonmart_demo.Adapter;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -17,13 +19,16 @@ import com.example.aeonmart_demo.Activity.DetailActivity;
 import com.example.aeonmart_demo.Model.HomeModel;
 import com.example.aeonmart_demo.R;
 
+
 import java.util.ArrayList;
 
 public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.MyVH>{
     ArrayList<HomeModel> homeModels;
+    private Context context;
 
-    public HomeAdapter(ArrayList<HomeModel> homeModels) {
+    public HomeAdapter(ArrayList<HomeModel> homeModels, Context context) {
         this.homeModels = homeModels;
+        this.context = context;
     }
 
     @NonNull
@@ -32,6 +37,10 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.MyVH>{
         View view = LayoutInflater.from(parent.getContext()).
                 inflate(R.layout.activity_product_cart_view,parent,false);
         return new MyVH(view);
+    }
+
+    private String getActivity() {
+        return null;
     }
 
     @Override
@@ -60,6 +69,8 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.MyVH>{
                             "imageMain");
             //sharedElementName is the same as xml file (imageMain)
             holder.ProductCartView.getContext().startActivity(sendData2Detail,optionsCompat.toBundle());
+
+
         });
     }
 
@@ -71,6 +82,7 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.MyVH>{
     public class MyVH extends RecyclerView.ViewHolder {
         ImageView ProductCartView;
         TextView textViewCart;
+
         public MyVH(@NonNull View itemView) {
             super(itemView);
             ProductCartView = itemView.findViewById(R.id.imageViewProductCart);

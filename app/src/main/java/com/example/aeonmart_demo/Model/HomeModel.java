@@ -3,26 +3,29 @@ package com.example.aeonmart_demo.Model;
 public class HomeModel {
     String Category;
     String Description;
+    Boolean FavStatus;
+
     String Image;
     String MaSp;
     String Name;
     String Origin;
     Double Price;
     String Rate;
+//    String ID;
 
     public HomeModel() {
     }
 
-    public HomeModel(String category, String description, String image, String maSp, String name, String origin, Double price, String rate) {
+    public HomeModel(String category, String description, Boolean favStatus, String image, String maSp, String name, String origin, Double price, String rate) {
         Category = category;
         Description = description;
+        FavStatus = favStatus;
         Image = image;
         MaSp = maSp;
         Name = name;
         Origin = origin;
         Price = price;
         Rate = rate;
-
     }
 
     public String getCategory() {
@@ -39,6 +42,14 @@ public class HomeModel {
 
     public void setDescription(String description) {
         Description = description;
+    }
+
+    public Boolean getFavStatus() {
+        return FavStatus;
+    }
+
+    public void setFavStatus(Boolean favStatus) {
+        FavStatus = favStatus;
     }
 
     public String getImage() {

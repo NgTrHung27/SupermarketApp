@@ -1,11 +1,14 @@
 package com.example.aeonmart_demo.Activity;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageButton;
 import android.widget.SearchView;
 import android.widget.Toast;
 
@@ -49,7 +52,7 @@ public class HomeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_home);
         androidx.appcompat.widget.Toolbar toolbar = findViewById(R.id.tool_bar);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle("");
+        getSupportActionBar().setTitle(" Trang chủ");
         getSupportActionBar().setLogo(R.drawable.aeonminilogo);
         getSupportActionBar().setDisplayUseLogoEnabled(true);
 
@@ -68,16 +71,79 @@ public class HomeActivity extends AppCompatActivity {
         renewItems(sliderView);
         //endregion
         homeModels = new ArrayList<>();
-        homeAdapter = new HomeAdapter(homeModels);
+        homeAdapter = new HomeAdapter(homeModels,this);
         db = FirebaseFirestore.getInstance();
         rv_Home = findViewById(R.id.rv_Home);
-        rv_Home.setLayoutFrozen(true);
-        rv_Home.isLayoutSuppressed();
+//        rv_Home.setLayoutFrozen(true);
+//        rv_Home.isLayoutSuppressed();
         rv_Home.setAdapter(homeAdapter);
         rv_Home.setLayoutManager(new GridLayoutManager(this,2));
 
         loadSlider();
         loadProductdata();
+
+        ImageButton voucherbt, tichxubt,tintucbt,doitrabt,danhgiabt, yeuthichbt, vongquaybt, thongbaobt;
+        voucherbt   = (ImageButton) findViewById(R.id.IB_Voucher);
+        tichxubt    = (ImageButton) findViewById(R.id.IB_Coin) ;
+        tintucbt    = (ImageButton) findViewById(R.id.IB_News);
+        doitrabt    = (ImageButton) findViewById(R.id.IB_Return);
+        danhgiabt   = (ImageButton) findViewById(R.id.IB_Review);
+        yeuthichbt  = (ImageButton) findViewById(R.id.IB_Fav);
+        vongquaybt  = (ImageButton) findViewById(R.id.IB_Lucky);
+        thongbaobt  = (ImageButton) findViewById(R.id.IB_Noti);
+
+        voucherbt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new  Intent(HomeActivity.this, VoucherListActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        tichxubt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new  Intent(HomeActivity.this, VoucherListActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        tintucbt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new  Intent(HomeActivity.this, NewsActivity.class);
+                startActivity(intent);
+            }
+        });
+        doitrabt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new  Intent(HomeActivity.this, TraHang_Activity.class);
+                startActivity(intent);
+            }
+        });
+        danhgiabt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new  Intent(HomeActivity.this, Danh_Gia_SP_Activity.class);
+                startActivity(intent);
+            }
+        });
+        yeuthichbt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new  Intent(HomeActivity.this, FavouriteActivity.class);
+                startActivity(intent);
+            }
+        });
+        vongquaybt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new  Intent(HomeActivity.this, VoucherListActivity.class);
+                startActivity(intent);
+            }
+        });
+
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -90,7 +156,7 @@ public class HomeActivity extends AppCompatActivity {
             @Override
             public boolean onQueryTextSubmit(String s) {
                 //call when press search button
-                seachData(s);
+                seachData(s, HomeActivity.this);
                 return false;
             }
             @Override
@@ -98,6 +164,7 @@ public class HomeActivity extends AppCompatActivity {
                 //call when type letter
                 if (s.isEmpty()){
                     homeModels.clear();
+                    slideViewModels.clear();
                     loadProductdata();
                 }else {
                     rv_Home.setVisibility(View.VISIBLE);
@@ -108,7 +175,7 @@ public class HomeActivity extends AppCompatActivity {
         //endregion
         return super.onCreateOptionsMenu(menu);
     }
-    void seachData(String s){
+    void seachData(String s, Context context){
         Query query = db.collection("Product").orderBy("Name").startAt(s).endAt(s+"\uf8ff");      // \uf8ff match all unicode value start with s
         query.get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
             @Override
@@ -117,15 +184,17 @@ public class HomeActivity extends AppCompatActivity {
                 for (QueryDocumentSnapshot documentSnapshot : task.getResult()){
                     String category = documentSnapshot.get("Category").toString();
                     String description = documentSnapshot.get("Description").toString();
+                    Boolean favstatus = Boolean.valueOf(documentSnapshot.get("FavStatus").toString());
+//                    String id = documentSnapshot.get("ID").toString();
                     String image = documentSnapshot.get("Image").toString();
                     String masp = documentSnapshot.get("MaSp").toString();
                     String name = documentSnapshot.get("Name").toString();
                     String origin = documentSnapshot.get("Origin").toString();
                     Double price = documentSnapshot.getDouble("Price").doubleValue();
                     String rate = documentSnapshot.get("Rate").toString();
-                    homeModels.add(new HomeModel(category, description, image, masp, name, origin, price, rate));
+                    homeModels.add(new HomeModel(category, description,favstatus,image, masp, name, origin, price, rate));
                 }
-                homeAdapter = new HomeAdapter(homeModels);
+                homeAdapter = new HomeAdapter(homeModels,context);
                 rv_Home.setAdapter(homeAdapter);
             }
         }).addOnFailureListener(e -> {
@@ -148,13 +217,16 @@ public class HomeActivity extends AppCompatActivity {
             for (QueryDocumentSnapshot documentSnapshot : task.getResult()){
                 String category = documentSnapshot.get("Category").toString();
                 String description = documentSnapshot.get("Description").toString();
+                Boolean favstatus = Boolean.valueOf(documentSnapshot.get("FavStatus").toString());
+                String id = documentSnapshot.get("ID").toString();
+
                 String image = documentSnapshot.get("Image").toString();
                 String masp = documentSnapshot.get("MaSp").toString();
                 String name = documentSnapshot.get("Name").toString();
                 String origin = documentSnapshot.get("Origin").toString();
                 Double price = documentSnapshot.getDouble("Price").doubleValue();
                 String rate = documentSnapshot.get("Rate").toString();
-                homeModels.add(new HomeModel(category, description, image, masp, name, origin, price, rate));
+                homeModels.add(new HomeModel(category, description,favstatus,image, masp, name, origin, price, rate));
             }
             homeAdapter.notifyDataSetChanged();
         }).addOnFailureListener(e -> {
@@ -168,4 +240,5 @@ public class HomeActivity extends AppCompatActivity {
         slideViewAdapter.renewItems(slideViewModels);
         slideViewAdapter.deleteItems(0);
     }
+
 }

@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -14,6 +15,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.bumptech.glide.Glide;
+import com.example.aeonmart_demo.Model.FavouriteModel;
 import com.example.aeonmart_demo.Model.GioHangModel;
 import com.example.aeonmart_demo.Model.HomeModel;
 import com.example.aeonmart_demo.R;
@@ -21,22 +23,22 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
-import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.nex3z.notificationbadge.NotificationBadge;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Map;
+import java.util.UUID;
 
 public class DetailActivity extends AppCompatActivity {
+    private boolean isFavorited = false;
+
     FirebaseFirestore db;
-    ArrayList<HomeModel> homeModels;
+//    ArrayList<HomeModel> homeModels;
 
     ImageView ProductImg;
     TextView Cate, Des, MaSp, Name, Ori, Price, Rate;
     Button btnThemGH;
-    CheckBox cbFav;
     NotificationBadge badge;
     EditText edtsoluong;
 
@@ -49,6 +51,11 @@ public class DetailActivity extends AppCompatActivity {
     Double price_DT;
     String rate_DT;
     ImageView imgcart;
+    CheckBox checkFav;
+    private String UUID_Favorite = "";
+    private HomeModel homeModel; // Khai báo biến homeModel ở cấp độ lớp để sử dụng trong phương thức onClick của checkFav
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -76,7 +83,7 @@ public class DetailActivity extends AppCompatActivity {
         Price = findViewById(R.id.Dt_gia);
 
         btnThemGH = findViewById(R.id.btn_ThemGioHang);
-        cbFav = findViewById(R.id.cbHeart);
+        checkFav = findViewById(R.id.cbHeart);
 
         badge = findViewById(R.id.notific);
         edtsoluong = findViewById(R.id.edtsoluong);
@@ -97,6 +104,19 @@ public class DetailActivity extends AppCompatActivity {
         Ori.setText(origin_DT);
         Price.setText(String.valueOf(price_DT));
         Glide.with(this).load(image_DT).into(ProductImg);
+        //
+        homeModel = new HomeModel();
+        homeModel.setCategory(category_DT);
+        homeModel.setDescription(description_DT);
+        homeModel.setImage(image_DT);
+        homeModel.setMaSp(masp_DT);
+        homeModel.setName(name_DT);
+        homeModel.setOrigin(origin_DT);
+        homeModel.setPrice(price_DT);
+        homeModel.setRate(rate_DT);
+//        homeModel.setID(UUID.randomUUID().toString());
+
+
 
         // Trong phương thức onClick của nút btnThemGH
         btnThemGH.setOnClickListener(new View.OnClickListener() {
@@ -130,8 +150,120 @@ public class DetailActivity extends AppCompatActivity {
                 addProductToFirestore(gioHangModel);
             }
         });
+        UUID_Favorite = getIntent().getStringExtra("UUID_Favorite");
+        if (UUID_Favorite == null || UUID_Favorite.isEmpty()) {
+            UUID_Favorite = UUID.randomUUID().toString();
+        }
+        checkFav.setChecked(isFavorited);
+        checkFav.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                // Cập nhật trạng thái yêu thích mới
+                isFavorited = isChecked;
+
+                // Gọi phương thức để cập nhật trạng thái yêu thích vào Firestore
+                updateFavStatusInFirestore(homeModel, isFavorited);
+
+                if (isChecked) {
+                    // Người dùng đã click vào checkbox, lưu dữ liệu lên Firestore
+                    FavouriteModel favouriteModel = new FavouriteModel(image_DT, name_DT, UUID_Favorite);
+                    favouriteModel.setId(UUID_Favorite); // Thêm ID vào đối tượng FavouriteModel
+                    saveFavToFireStore(favouriteModel);
+                    Toast.makeText(buttonView.getContext(), "Đã thêm vào danh sách yêu thích", Toast.LENGTH_SHORT).show();
+                } else {
+                    // Người dùng đã bỏ chọn checkbox, xóa dữ liệu khỏi Firestore
+                    FavouriteModel favouriteModel = new FavouriteModel(image_DT, name_DT, UUID_Favorite);
+                    favouriteModel.setId(UUID_Favorite); // Thêm ID vào đối tượng FavouriteModel
+                    deleteFavFromFirestore(favouriteModel);
+                    Toast.makeText(buttonView.getContext(), "Đã xóa khỏi danh sách yêu thích", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
 
     }
+    // Định nghĩa phương thức updateFavStatusInFirestore để cập nhật trạng thái yêu thích vào Firestore
+    private void updateFavStatusInFirestore(HomeModel homeModel, boolean isFavorited) {
+        // Lấy tham chiếu đến collection "products" trong Firestore
+        CollectionReference productsRef = db.collection("Product");
+
+        // Lấy ID của sản phẩm
+        String productId = homeModel.getMaSp();
+
+        // Cập nhật trạng thái yêu thích của sản phẩm vào Firestore
+        productsRef.document(productId).update("FavStatus", isFavorited)
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void aVoid) {
+                        // Cập nhật thành công
+                        Toast.makeText(DetailActivity.this, "Cập nhật trạng thái yêu thích thành công!", Toast.LENGTH_SHORT).show();
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        // Xảy ra lỗi
+                        Toast.makeText(DetailActivity.this, "Lỗi khi cập nhật trạng thái yêu thích: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+                });
+    }
+
+    private void saveFavToFireStore(FavouriteModel favouriteModel) {
+        String productId = favouriteModel.getId(); // Lấy ID của sản phẩm từ đối tượng FavouriteModel
+
+        // Kiểm tra xem productId có giá trị hợp lệ không
+        if (productId != null && !productId.isEmpty()) {
+            HashMap<String, Object> map = new HashMap<>();
+            map.put("ProductId", productId); // Sử dụng ProductId làm trường để xác định sản phẩm yêu thích
+            map.put("ImageFav", favouriteModel.getImageFav());
+            map.put("NameFav", favouriteModel.getNameFav());
+
+            // Lưu trữ tài liệu yêu thích vào Firestore với tên tùy chọn (chẳng hạn mã sản phẩm làm tên)
+            db.collection("Favourite").document(productId)
+                    .set(map)
+                    .addOnSuccessListener(new OnSuccessListener<Void>() {
+                        @Override
+                        public void onSuccess(Void aVoid) {
+                            Toast.makeText(DetailActivity.this, "Đã thêm vào danh sách yêu thích", Toast.LENGTH_SHORT).show();
+                        }
+                    })
+                    .addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            Toast.makeText(DetailActivity.this, "Lỗi khi thêm vào danh sách yêu thích: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+                        }
+                    });
+        } else {
+            Toast.makeText(DetailActivity.this, "Không thể thêm vào danh sách yêu thích vì thiếu thông tin ID sản phẩm", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+
+    public void deleteFavFromFirestore(FavouriteModel favouriteModel){
+        String productId = favouriteModel.getId(); // Lấy ID của sản phẩm
+
+        // Kiểm tra xem productId có giá trị hợp lệ không
+        if (productId != null && !productId.isEmpty()) {
+            // Xóa tài liệu yêu thích dựa trên ProductId
+            db.collection("Favourite").document(productId)
+                    .delete()
+                    .addOnSuccessListener(new OnSuccessListener<Void>() {
+                        @Override
+                        public void onSuccess(Void aVoid) {
+                            Toast.makeText(DetailActivity.this, "Đã xóa khỏi danh sách yêu thích", Toast.LENGTH_SHORT).show();
+                        }
+                    })
+                    .addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            Toast.makeText(DetailActivity.this, "Lỗi khi xóa khỏi danh sách yêu thích: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+                        }
+                    });
+        } else {
+            Toast.makeText(DetailActivity.this, "Không thể xóa khỏi danh sách yêu thích vì thiếu thông tin ID sản phẩm", Toast.LENGTH_SHORT).show();
+        }
+    }
+
 
     // Để thêm sản phẩm vào collection "cart" trên Firestore
     private void addProductToFirestore(GioHangModel gioHangModel) {
