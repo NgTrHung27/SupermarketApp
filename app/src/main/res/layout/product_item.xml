@@ -1,0 +1,133 @@
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <TextView
+            android:id="@+id/txt_masp_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Mã sản phẩm:"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/itemproduct_masp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/txt_name_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Tên sản phẩm:"
+            android:textColor="@android:color/darker_gray" />
+
+        <TextView
+            android:id="@+id/productitem_txt_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/darker_gray" />
+
+        <!-- Giá sản phẩm -->
+        <TextView
+            android:id="@+id/txt_price_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Giá sản phẩm:"
+            android:textColor="@android:color/darker_gray" />
+
+        <TextView
+            android:id="@+id/productitem_txt_price"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/darker_gray" />
+
+        <!-- Danh mục -->
+        <TextView
+            android:id="@+id/txt_category_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Danh mục:"
+            android:textColor="@android:color/darker_gray" />
+
+        <TextView
+            android:id="@+id/productitem_txt_category"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/darker_gray" />
+
+        <!-- Xuất xứ -->
+        <TextView
+            android:id="@+id/txt_origin_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Xuất xứ:"
+            android:textColor="@android:color/darker_gray" />
+
+        <TextView
+            android:id="@+id/productitem_txt_origin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/darker_gray" />
+
+        <!-- Mô tả -->
+        <TextView
+            android:id="@+id/txt_description_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Mô tả:"
+            android:textColor="@android:color/darker_gray" />
+
+        <TextView
+            android:id="@+id/productitem_txt_description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/darker_gray" />
+
+        <!-- Yêu thích -->
+        <TextView
+            android:id="@+id/txt_favstatus_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Yêu thích:"
+            android:textColor="@android:color/darker_gray" />
+
+        <TextView
+            android:id="@+id/productitem_txt_favstatus"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/darker_gray" />
+
+        <!-- Đánh giá -->
+        <TextView
+            android:id="@+id/txt_rate_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Đánh giá:"
+            android:textColor="@android:color/darker_gray" />
+
+        <TextView
+            android:id="@+id/productitem_txt_rate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/darker_gray" />
+
+        <ImageView
+            android:id="@+id/productitem_image"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_marginTop="16dp"
+            android:src="@drawable/logoaeon" />
+
+        <Button
+            android:id="@+id/productitem_btn_delete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Xóa"
+            android:layout_gravity="center"
+            android:layout_marginTop="8dp" />
+
+    </LinearLayout>

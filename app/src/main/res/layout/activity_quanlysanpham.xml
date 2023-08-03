@@ -19,17 +19,12 @@
         android:layout_height="wrap_content"
         android:text="Thêm sản phẩm" />
 
-    <Button
-        android:id="@+id/quanlysanpham_btn_xóa"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Xóa" />
 
     <Button
         android:id="@+id/button4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Button" />
+        android:text="Sửa sản phẩm" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_quanlysanpham"

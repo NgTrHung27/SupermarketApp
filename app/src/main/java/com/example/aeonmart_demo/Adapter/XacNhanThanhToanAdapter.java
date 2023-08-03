@@ -33,7 +33,7 @@ public class XacNhanThanhToanAdapter extends RecyclerView.Adapter<XacNhanThanhTo
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            // Khởi tạo các view trong item của RecyclerView
+//             Khởi tạo các view trong item của RecyclerView
             productNameTextView = itemView.findViewById(R.id.xndh_tvThongTin);
             productPriceTextView = itemView.findViewById(R.id.xndh_tvGia);
             img = itemView.findViewById(R.id.xndh_ImgSP);

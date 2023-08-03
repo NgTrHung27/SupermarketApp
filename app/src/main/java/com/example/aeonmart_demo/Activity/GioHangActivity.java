@@ -67,9 +67,9 @@ public class GioHangActivity extends AppCompatActivity {
             public void onClick(View v) {
                 List<GioHangModel> gioHangList = adapter.getGioHangList();
                 // Tạo Intent để bắt đầu XacNhanThanhToanActivity và truyền dữ liệu thông qua Intent
-                Intent intent = new Intent(GioHangActivity.this, XacNhanThanhToanActivity.class);
-                intent.putExtra("gioHangList", (Serializable) gioHangList);
-                startActivity(intent);
+//                Intent intent = new Intent(GioHangActivity.this, XacNhanThanhToanActivity.class);
+//                intent.putExtra("gioHangList", (Serializable) gioHangList);
+//                startActivity(intent);
             }
         });
 

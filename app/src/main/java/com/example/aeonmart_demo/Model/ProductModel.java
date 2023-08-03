@@ -1,6 +1,6 @@
 package com.example.aeonmart_demo.Model;
 
-public class Product {
+public class ProductModel {
     private String MaSp;
     private String Name;
     private double Price;
@@ -11,7 +11,7 @@ public class Product {
     private boolean FavStatus;
     private String Rate;
 
-    public Product(String maSp, String name, double price, String category, String origin, String description, String image, boolean favStatus, String rate) {
+    public ProductModel(String maSp, String name, double price, String category, String origin, String description, String image, boolean favStatus, String rate) {
         MaSp = maSp;
         Name = name;
         Price = price;
@@ -22,6 +22,7 @@ public class Product {
         FavStatus = favStatus;
         Rate = rate;
     }
+    public  ProductModel(){}
 
     public String getMaSp() {
         return MaSp;

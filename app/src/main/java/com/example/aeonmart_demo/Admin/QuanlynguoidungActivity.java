@@ -1,33 +1,29 @@
-package com.example.aeonmart_demo.Admin;
-
+package com.example.aeonmart_demo.Admin;// QuanlynguoidungActivity
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
-import android.widget.Button;
+import android.widget.Toast;
 
 import com.example.aeonmart_demo.Adapter.UserAdapter;
 import com.example.aeonmart_demo.Model.User;
 import com.example.aeonmart_demo.R;
-
-import java.util.ArrayList;
-import java.util.List;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentChange;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
-import com.google.firebase.firestore.QuerySnapshot;
-import com.google.firebase.firestore.CollectionReference;
-import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.android.gms.tasks.OnFailureListener;
+
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class QuanlynguoidungActivity extends AppCompatActivity {
-Button btnxoa;
-RecyclerView rv_quanlynguoidung;
-List<User> userList;
-UserAdapter userAdapter;
+    RecyclerView rv_quanlynguoidung;
+    List<User> userList;
+    UserAdapter userAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,79 +33,59 @@ UserAdapter userAdapter;
         rv_quanlynguoidung = findViewById(R.id.rv_quanlynguoidung);
         rv_quanlynguoidung.setHasFixedSize(true);
         rv_quanlynguoidung.setLayoutManager(new LinearLayoutManager(this));
-// Gán sự kiện xóa người dùng khi người dùng chọn nút xóa trong RecyclerView
 
-        // Khởi tạo adapter
         userAdapter = new UserAdapter(this, userList);
         rv_quanlynguoidung.setAdapter(userAdapter);
 
         FirebaseFirestore db = FirebaseFirestore.getInstance();
         db.collection("users")
-                .orderBy("name", Query.Direction.ASCENDING) // Sắp xếp theo tên (tùy chọn)
+                .orderBy("name", Query.Direction.ASCENDING)
                 .addSnapshotListener((value, error) -> {
                     if (error != null) {
-                        // Xử lý lỗi nếu có
                         return;
                     }
 
-                    // Xóa danh sách người dùng hiện tại
                     userList.clear();
 
-                    // Lặp qua các tài liệu trong "users" và thêm vào danh sách người dùng
                     for (DocumentChange doc : value.getDocumentChanges()) {
                         if (doc.getType() == DocumentChange.Type.ADDED) {
-                            String name = doc.getDocument().getString("name");
-                            String birth = doc.getDocument().getString("birth");
-                            String email = doc.getDocument().getString("email");
-                            String phone = doc.getDocument().getString("phone");
-                            String cccd = doc.getDocument().getString("cccd");
-                            String address = doc.getDocument().getString("address");
-                            String password = doc.getDocument().getString("password");
-                            String role=doc.getDocument().getString("role");
-                            // Tạo đối tượng User và thêm vào danh sách
-                            User user = new User(name, birth, email, phone, cccd, address, password,role);
+                            User user = doc.getDocument().toObject(User.class);
                             userList.add(user);
                         }
                     }
 
-                    // Cập nhật lại RecyclerView
                     userAdapter.notifyDataSetChanged();
                 });
 
-        // Đặt sự kiện xóa người dùng khi nhấn nút xóa
-        userAdapter.setOnDeleteButtonClickListener(new UserAdapter.OnDeleteButtonClickListener() {
-            @Override
-            public void onDeleteButtonClicked(int position) {
-                User userToDelete = userList.get(position);
-                deleteUserFromFirestore(userToDelete);
-            }
+        userAdapter.setOnDeleteButtonClickListener(userEmail -> {
+            deleteUserDataInFirestore(userEmail);
         });
-
     }
-    private void deleteUserFromFirestore(User user) {
-        // Lấy tham chiếu tới collection "users" trong Firestore
-        CollectionReference usersCollectionRef = FirebaseFirestore.getInstance().collection("users");
+    private void deleteUserDataInFirestore(String userEmail) {
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
 
-        // Xác định tài liệu người dùng cần xóa (dựa vào trường ID hoặc một trường duy nhất có giá trị duy nhất để xác định người dùng)
-        String userIdToDelete = user.getEmail();
-        if (userIdToDelete != null) {
-            // Xóa tài liệu người dùng khỏi Firestore
-            usersCollectionRef.document(userIdToDelete)
-                    .delete()
-                    .addOnSuccessListener(new OnSuccessListener<Void>() {
-                        @Override
-                        public void onSuccess(Void aVoid) {
-                            userAdapter.notifyDataSetChanged();
-                        }
-                    })
-                    .addOnFailureListener(new OnFailureListener() {
-                        @Override
-                        public void onFailure(@NonNull Exception e) {
-                            // Xử lý lỗi nếu xảy ra
-                        }
-                    });
-        }
+        // Delete user data document based on the user's email
+        db.collection("users").document(userEmail)
+                .delete()
+                .addOnSuccessListener(aVoid -> {
+                    // After deleting user data, delete the corresponding user account in Firebase Authentication
+                    FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+                    if (user != null && user.getEmail().equals(userEmail)) {
+                        user.delete()
+                                .addOnSuccessListener(aVoid1 -> {
+                                    // Account deleted successfully
+                                    Toast.makeText(QuanlynguoidungActivity.this, "Đã xóa tài khoản người dùng", Toast.LENGTH_SHORT).show();
+                                })
+                                .addOnFailureListener(e -> {
+                                    // An error occurred while deleting the account
+                                    Toast.makeText(QuanlynguoidungActivity.this, "Lỗi: Không thể xóa tài khoản người dùng", Toast.LENGTH_SHORT).show();
+                                });
+                    }
+                    recreate();
+                })
+                .addOnFailureListener(e -> {
+                    Toast.makeText(QuanlynguoidungActivity.this, "Lỗi: Không thể xóa dữ liệu người dùng", Toast.LENGTH_SHORT).show();
+                });
     }
-
 
 }

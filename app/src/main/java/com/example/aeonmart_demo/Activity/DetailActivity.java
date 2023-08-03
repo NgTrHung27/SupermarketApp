@@ -195,7 +195,7 @@ public class DetailActivity extends AppCompatActivity {
     // Định nghĩa phương thức updateFavStatusInFirestore để cập nhật trạng thái yêu thích vào Firestore
     private void updateFavStatusInFirestore(HomeModel homeModel, boolean isFavorited) {
         // Lấy tham chiếu đến collection "products" trong Firestore
-        CollectionReference productsRef = db.collection("Product");
+        CollectionReference productsRef = db.collection("ProductModel");
 
         // Lấy ID của sản phẩm
         String productId = homeModel.getMaSp();

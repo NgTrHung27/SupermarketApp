@@ -12,7 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.aeonmart_demo.Model.Product;
+import com.example.aeonmart_demo.Model.ProductModel;
 import com.example.aeonmart_demo.R;
 import com.google.android.gms.tasks.Continuation;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -20,9 +20,7 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.CollectionReference;
-import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.QuerySnapshot;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
@@ -51,7 +49,6 @@ public class ThemSanPhamActivity extends AppCompatActivity {
         // Initialize Firestore
         firestore = FirebaseFirestore.getInstance();
         productCollectionRef = firestore.collection("Product");
-
         // Initialize Firebase Storage
         storageReference = FirebaseStorage.getInstance().getReference("product_images");
 
@@ -78,6 +75,8 @@ public class ThemSanPhamActivity extends AppCompatActivity {
             public void onClick(View view) {
                 // Call the function to add the product to Firestore
                 addProductToFirestore();
+                Intent intent=new Intent(ThemSanPhamActivity.this,QuanlysanphamActivity.class);
+                startActivity(intent);
             }
         });
     }
@@ -134,11 +133,11 @@ public class ThemSanPhamActivity extends AppCompatActivity {
                 public void onComplete(@NonNull Task<Uri> task) {
                     if (task.isSuccessful()) {
                         Uri downloadUri = task.getResult();
-                        // Create a Product object with all the data
-                        Product product = new Product( masp, name, price, category, origin, description, downloadUri.toString(),favstatus,rate);
+                        // Create a ProductModel object with all the data
+                        ProductModel productModel = new ProductModel( masp, name, price, category, origin, description, downloadUri.toString(),favstatus,rate);
 
-                        // Add the product data to Firestore
-                        addProductDataToFirestore(product);
+                        // Add the productModel data to Firestore
+                        addProductDataToFirestore(productModel);
                         progressDialog.dismiss();
                     } else {
                         progressDialog.dismiss();
@@ -153,42 +152,42 @@ public class ThemSanPhamActivity extends AppCompatActivity {
                 }
             });
         } else {
-            // If no image is selected, create a Product object without the image URL
-            Product product = new Product( masp, name, price, category, origin, description, null,favstatus,rate);
+            // If no image is selected, create a ProductModel object without the image URL
+            ProductModel productModel = new ProductModel( masp, name, price, category, origin, description, null,favstatus,rate);
 
-            // Add the product data to Firestore
-            addProductDataToFirestore(product);
+            // Add the productModel data to Firestore
+            addProductDataToFirestore(productModel);
         }
     }
 
-    private void addProductDataToFirestore(Product product) {
+    private void addProductDataToFirestore(ProductModel productModel) {
         Map<String, Object> productMap = new HashMap<>();
 
-        productMap.put("MaSp", product.getMaSp());
-        productMap.put("Name", product.getName());
-        productMap.put("Price", product.getPrice());
-        productMap.put("Category", product.getCategory());
-        productMap.put("Origin", product.getOrigin());
-        productMap.put("Description", product.getDescription());
-        productMap.put("Image", product.getImage());
-        productMap.put("FavStatus", product.isFavStatus());
-        productMap.put("Rate", product.getRate());
+        productMap.put("MaSp", productModel.getMaSp());
+        productMap.put("Name", productModel.getName());
+        productMap.put("Price", productModel.getPrice());
+        productMap.put("Category", productModel.getCategory());
+        productMap.put("Origin", productModel.getOrigin());
+        productMap.put("Description", productModel.getDescription());
+        productMap.put("Image", productModel.getImage());
+        productMap.put("FavStatus", productModel.isFavStatus());
+        productMap.put("Rate", productModel.getRate());
 
-        // Add the product to Firestore
-        productCollectionRef.document(product.getMaSp()) // Sử dụng mã sản phẩm làm tên tài liệu
+        // Add the productModel to Firestore
+        productCollectionRef.document(productModel.getMaSp()) // Sử dụng mã sản phẩm làm tên tài liệu
                 .set(productMap)
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void aVoid) {
-                        // Product added successfully
+                        // ProductModel added successfully
                         // You can add further actions or show a success message here
-                        finish(); // Finish the activity after adding the product
+                        finish(); // Finish the activity after adding the productModel
                     }
                 })
                 .addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
-                        // Product adding failed
+                        // ProductModel adding failed
                         // You can show an error message here if needed
                     }
                 });
