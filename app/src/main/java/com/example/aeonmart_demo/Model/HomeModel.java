@@ -11,7 +11,6 @@ public class HomeModel {
     String Origin;
     Double Price;
     String Rate;
-//    String ID;
 
     public HomeModel() {
     }

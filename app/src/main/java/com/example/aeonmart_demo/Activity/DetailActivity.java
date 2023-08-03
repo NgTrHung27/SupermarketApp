@@ -1,7 +1,10 @@
 package com.example.aeonmart_demo.Activity;
 
+import static android.content.ContentValues.TAG;
+
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -64,6 +67,7 @@ public class DetailActivity extends AppCompatActivity {
 
         // Khởi tạo đối tượng Firestore một lần duy nhất
         db = FirebaseFirestore.getInstance();
+        Log.e(TAG, "onCreate: " + db );
 
         imgcart = findViewById(R.id.img_cart);
         imgcart.setOnClickListener(new View.OnClickListener() {
@@ -114,8 +118,8 @@ public class DetailActivity extends AppCompatActivity {
         homeModel.setOrigin(origin_DT);
         homeModel.setPrice(price_DT);
         homeModel.setRate(rate_DT);
-//        homeModel.setID(UUID.randomUUID().toString());
-
+        homeModel.setFavStatus(isFavorited);
+        Log.e(TAG, "onCreate: " + homeModel.getFavStatus() );
 
 
         // Trong phương thức onClick của nút btnThemGH
@@ -150,10 +154,6 @@ public class DetailActivity extends AppCompatActivity {
                 addProductToFirestore(gioHangModel);
             }
         });
-        UUID_Favorite = getIntent().getStringExtra("UUID_Favorite");
-        if (UUID_Favorite == null || UUID_Favorite.isEmpty()) {
-            UUID_Favorite = UUID.randomUUID().toString();
-        }
         checkFav.setChecked(isFavorited);
         checkFav.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -161,22 +161,32 @@ public class DetailActivity extends AppCompatActivity {
                 // Cập nhật trạng thái yêu thích mới
                 isFavorited = isChecked;
 
+
                 // Gọi phương thức để cập nhật trạng thái yêu thích vào Firestore
                 updateFavStatusInFirestore(homeModel, isFavorited);
-
                 if (isChecked) {
                     // Người dùng đã click vào checkbox, lưu dữ liệu lên Firestore
                     FavouriteModel favouriteModel = new FavouriteModel(image_DT, name_DT, masp_DT);
                     favouriteModel.setId(masp_DT); // Thêm ID vào đối tượng FavouriteModel
                     saveFavToFireStore(favouriteModel);
                     Toast.makeText(buttonView.getContext(), "Đã thêm vào danh sách yêu thích", Toast.LENGTH_SHORT).show();
+                    checkFav.setButtonTintList(getResources().getColorStateList(com.nex3z.notificationbadge.R.color.red));
+
+                    // Lưu trạng thái yêu thích vào homeModel
+                    homeModel.setFavStatus(true);
+
                 } else {
                     // Người dùng đã bỏ chọn checkbox, xóa dữ liệu khỏi Firestore
-                    FavouriteModel favouriteModel = new FavouriteModel(image_DT, name_DT, UUID_Favorite);
-                    favouriteModel.setId(UUID_Favorite); // Thêm ID vào đối tượng FavouriteModel
+                    FavouriteModel favouriteModel = new FavouriteModel(image_DT, name_DT, masp_DT);
+                    favouriteModel.setId(masp_DT); // Thêm ID vào đối tượng FavouriteModel
                     deleteFavFromFirestore(favouriteModel);
                     Toast.makeText(buttonView.getContext(), "Đã xóa khỏi danh sách yêu thích", Toast.LENGTH_SHORT).show();
+                    checkFav.setButtonTintList(getResources().getColorStateList(R.color.mau_xam));
+
+                    // Lưu trạng thái yêu thích vào homeModel
+                    homeModel.setFavStatus(false);
                 }
+
             }
         });
 

@@ -185,7 +185,6 @@ public class HomeActivity extends AppCompatActivity {
                     String category = documentSnapshot.get("Category").toString();
                     String description = documentSnapshot.get("Description").toString();
                     Boolean favstatus = Boolean.valueOf(documentSnapshot.get("FavStatus").toString());
-//                    String id = documentSnapshot.get("ID").toString();
                     String image = documentSnapshot.get("Image").toString();
                     String masp = documentSnapshot.get("MaSp").toString();
                     String name = documentSnapshot.get("Name").toString();
@@ -218,7 +217,6 @@ public class HomeActivity extends AppCompatActivity {
                 String category = documentSnapshot.get("Category").toString();
                 String description = documentSnapshot.get("Description").toString();
                 Boolean favstatus = Boolean.valueOf(documentSnapshot.get("FavStatus").toString());
-                String id = documentSnapshot.get("ID").toString();
 
                 String image = documentSnapshot.get("Image").toString();
                 String masp = documentSnapshot.get("MaSp").toString();
