@@ -103,7 +103,7 @@ public class HomeActivity extends AppCompatActivity {
         tichxubt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new  Intent(HomeActivity.this, VoucherListActivity.class);
+                Intent intent = new  Intent(HomeActivity.this, TichXuActivity.class);
                 startActivity(intent);
             }
         });
@@ -139,7 +139,14 @@ public class HomeActivity extends AppCompatActivity {
         vongquaybt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new  Intent(HomeActivity.this, VoucherListActivity.class);
+                Intent intent = new  Intent(HomeActivity.this, Quay_ThuongActivity.class);
+                startActivity(intent);
+            }
+        });
+        thongbaobt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new  Intent(HomeActivity.this, NotificationActivity.class);
                 startActivity(intent);
             }
         });

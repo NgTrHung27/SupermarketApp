@@ -70,6 +70,12 @@
         <activity
             android:name=".MainActivity"
             android:exported="true" />
+        <activity
+            android:name=".Activity.VoucherListActivity"
+            android:exported="true"></activity>
+        <activity
+            android:name=".Activity.TraHang_Activity"
+            android:exported="true"></activity>
     </application>
 
 </manifest>

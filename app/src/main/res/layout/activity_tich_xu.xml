@@ -28,7 +28,6 @@
             android:backgroundTint="#993B3B">
 
 
-
             <TextView
                 android:id="@+id/TichXu_TV"
                 android:layout_width="match_parent"
@@ -52,15 +51,15 @@
                     android:layout_width="60dp"
                     android:layout_height="30dp"
                     android:text="Số xu:"
-                    android:textSize="20sp"
-                    android:textColor="@color/white" />
+                    android:textColor="@color/white"
+                    android:textSize="20sp" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="30dp"
                     android:text="50"
-                    android:textSize="20sp"
-                    android:textColor="@color/white" />
+                    android:textColor="@color/white"
+                    android:textSize="20sp" />
             </LinearLayout>
             <!-- ImageView để chèn hình vào Rectangle -->
             <ImageView

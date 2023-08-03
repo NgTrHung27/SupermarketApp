@@ -60,7 +60,7 @@
                 android:id="@+id/your_edit_text"
                 android:padding="15dp"
                 android:layout_width="380dp"
-                android:layout_height="380dp"
+                android:layout_height="200dp"
                 android:gravity="top|start"
                 android:layout_gravity="center"
                 android:inputType="textMultiLine"
