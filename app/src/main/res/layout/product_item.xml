@@ -13,10 +13,10 @@
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/itemproduct_masp"
+            android:id="@+id/itemproduct_edt_masp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="18sp" />
+            android:textSize="18dp" />
 
         <TextView
             android:id="@+id/txt_name_title"
@@ -25,8 +25,8 @@
             android:text="Tên sản phẩm:"
             android:textColor="@android:color/darker_gray" />
 
-        <TextView
-            android:id="@+id/productitem_txt_name"
+        <EditText
+            android:id="@+id/productitem_edt_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="@android:color/darker_gray" />
@@ -39,10 +39,11 @@
             android:text="Giá sản phẩm:"
             android:textColor="@android:color/darker_gray" />
 
-        <TextView
-            android:id="@+id/productitem_txt_price"
+        <EditText
+            android:id="@+id/productitem_edt_price"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:inputType="number"
             android:textColor="@android:color/darker_gray" />
 
         <!-- Danh mục -->
@@ -53,8 +54,8 @@
             android:text="Danh mục:"
             android:textColor="@android:color/darker_gray" />
 
-        <TextView
-            android:id="@+id/productitem_txt_category"
+        <EditText
+            android:id="@+id/productitem_edt_category"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="@android:color/darker_gray" />
@@ -67,8 +68,8 @@
             android:text="Xuất xứ:"
             android:textColor="@android:color/darker_gray" />
 
-        <TextView
-            android:id="@+id/productitem_txt_origin"
+        <EditText
+            android:id="@+id/productitem_edt_origin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="@android:color/darker_gray" />
@@ -81,8 +82,8 @@
             android:text="Mô tả:"
             android:textColor="@android:color/darker_gray" />
 
-        <TextView
-            android:id="@+id/productitem_txt_description"
+        <EditText
+            android:id="@+id/productitem_edt_description"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="@android:color/darker_gray" />
@@ -109,8 +110,8 @@
             android:text="Đánh giá:"
             android:textColor="@android:color/darker_gray" />
 
-        <TextView
-            android:id="@+id/productitem_txt_rate"
+        <EditText
+            android:id="@+id/productitem_edt_rate"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="@android:color/darker_gray" />
@@ -118,16 +119,35 @@
         <ImageView
             android:id="@+id/productitem_image"
             android:layout_width="match_parent"
-            android:layout_height="200dp"
+            android:layout_height="133dp"
             android:layout_marginTop="16dp"
             android:src="@drawable/logoaeon" />
 
-        <Button
-            android:id="@+id/productitem_btn_delete"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="300dp"
             android:layout_height="wrap_content"
-            android:text="Xóa"
-            android:layout_gravity="center"
-            android:layout_marginTop="8dp" />
+            android:orientation="horizontal"
+            android:layout_gravity="center">
+
+            <Button
+                android:id="@+id/productitem_btn_delete"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="8dp"
+                android:text="Xóa"
+                android:backgroundTint="@color/xanh_la_cay_dam"
+                android:layout_marginRight="50dp"/>
+
+            <Button
+                android:id="@+id/productitem_btn_update"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="8dp"
+                android:text="Sửa"
+                android:backgroundTint="@color/xanh_la_cay_dam"
+                android:layout_marginLeft="50dp"/>
+        </LinearLayout>
 
     </LinearLayout>

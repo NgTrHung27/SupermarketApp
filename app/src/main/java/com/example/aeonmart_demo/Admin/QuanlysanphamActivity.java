@@ -1,5 +1,6 @@
 package com.example.aeonmart_demo.Admin;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -11,13 +12,16 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.example.aeonmart_demo.Adapter.ProductAdapter;
+import com.example.aeonmart_demo.MainActivity;
 import com.example.aeonmart_demo.Model.ProductModel;
 import com.example.aeonmart_demo.R;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class QuanlysanphamActivity extends AppCompatActivity {
 
@@ -26,6 +30,7 @@ public class QuanlysanphamActivity extends AppCompatActivity {
     private ProductAdapter productAdapter;
     private List<ProductModel> productList;
     private Button btnthemsanpham;
+    private static final int UPDATE_PRODUCT_REQUEST = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,7 +51,6 @@ public class QuanlysanphamActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(QuanlysanphamActivity.this, ThemSanPhamActivity.class);
                 startActivity(intent);
-                recreate();
             }
         });
 
@@ -59,10 +63,45 @@ public class QuanlysanphamActivity extends AppCompatActivity {
             }
         });
 
+        // update sản phẩm
+        productAdapter.setOnProductUpdateListener(new ProductAdapter.OnProductUpdateListener() {
+            @Override
+            public void onProductUpdate(int position, ProductModel product) {
+                // Mở màn hình cập nhật sản phẩm với thông tin đã có
+                updateProductInFirestore(position,product);
+            }
+        });
         fetchProductsFromFirestore();
+    }
+    // Xử lý kết quả từ màn hình cập nhật sản phẩm
+    private void updateProductInFirestore(int position, ProductModel updatedProduct) {
+
+        String maSp = productList.get(position).getMaSp();
+        Map<String, Object> updatedData = new HashMap<>();
+        updatedData.put("Name", updatedProduct.getName());
+        updatedData.put("Price", updatedProduct.getPrice());
+        updatedData.put("Category", updatedProduct.getCategory());
+        updatedData.put("Origin", updatedProduct.getOrigin());
+        updatedData.put("Description", updatedProduct.getDescription());
+        updatedData.put("FavStatus", updatedProduct.isFavStatus());
+        updatedData.put("Rate", updatedProduct.getRate());
+
+        db.collection("Product")
+                .document(maSp)
+                .update(updatedData)
+                .addOnSuccessListener(aVoid -> {
+                    Toast.makeText(QuanlysanphamActivity.this, "Đã cập nhật sản phẩm", Toast.LENGTH_SHORT).show();
+                    // Cập nhật dữ liệu trong danh sách và RecyclerView
+                    productList.set(position, updatedProduct);
+                    productAdapter.notifyItemChanged(position);
+                })
+                .addOnFailureListener(e -> {
+                    Toast.makeText(QuanlysanphamActivity.this, "Lỗi khi cập nhật sản phẩm: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+                });
     }
 
     private void fetchProductsFromFirestore() {
+
         db.collection("Product")
                 .get()
                 .addOnCompleteListener(task -> {
@@ -71,6 +110,7 @@ public class QuanlysanphamActivity extends AppCompatActivity {
                         for (DocumentSnapshot document : task.getResult()) {
                             ProductModel product = document.toObject(ProductModel.class);
                             productList.add(product);
+
                         }
                         productAdapter.notifyDataSetChanged();
 
@@ -90,6 +130,8 @@ public class QuanlysanphamActivity extends AppCompatActivity {
                     Toast.makeText(QuanlysanphamActivity.this, "Đã xóa sản phẩm", Toast.LENGTH_SHORT).show();
                     productList.remove(position);
                     productAdapter.notifyItemRemoved(position);
+                    Intent intent=new Intent(QuanlysanphamActivity.this, MainActivity.class);
+                    startActivity(intent);
 
                 })
                 .addOnFailureListener(e -> {

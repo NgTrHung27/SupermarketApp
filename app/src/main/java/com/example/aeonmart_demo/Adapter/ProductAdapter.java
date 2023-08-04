@@ -3,7 +3,9 @@ package com.example.aeonmart_demo.Adapter;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -54,6 +56,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
     public void onBindViewHolder(@NonNull ProductViewHolder holder, int position) {
         ProductModel product = productList.get(position);
         holder.bind(product);
+
     }
 
     @Override
@@ -61,17 +64,38 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
         return productList.size();
     }
 
+    public interface OnProductUpdateListener {
+        void onProductUpdate(int position, ProductModel product);
+
+    }
+
+    private OnProductUpdateListener onProductUpdateListener;
+
+    public void setOnProductUpdateListener(OnProductUpdateListener listener) {
+        this.onProductUpdateListener = listener;
+    }
+    public interface OnProductEditListener {
+        void onProductEdit(int position, ProductModel updatedProduct);
+    }
+
+    private OnProductEditListener onProductEditListener;
+
+    public void setOnProductEditListener(OnProductEditListener listener) {
+        this.onProductEditListener = listener;
+    }
+
     public class ProductViewHolder extends RecyclerView.ViewHolder {
         private TextView maspTextView;
-        private TextView nameTextView;
-        private TextView priceTextView;
-        private TextView categoryTextView;
-        private TextView originTextView;
-        private TextView descriptionTextView;
+        private EditText nameTextView;
+        private EditText priceTextView;
+        private EditText categoryTextView;
+        private EditText originTextView;
+        private EditText descriptionTextView;
         private TextView favstatusTextView;
-        private TextView rateTextView;
+        private EditText rateTextView;
         private ImageView productImageView;
         private Button deleteButton;
+        private Button updateButton;
 
         //xóa sản phẩm
 
@@ -79,16 +103,18 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
 
         public ProductViewHolder(@NonNull View itemView) {
             super(itemView);
-            maspTextView = itemView.findViewById(R.id.itemproduct_masp);
-            nameTextView = itemView.findViewById(R.id.productitem_txt_name);
-            priceTextView = itemView.findViewById(R.id.productitem_txt_price);
-            categoryTextView = itemView.findViewById(R.id.productitem_txt_category);
-            originTextView = itemView.findViewById(R.id.productitem_txt_origin);
-            descriptionTextView = itemView.findViewById(R.id.productitem_txt_description);
+            maspTextView = itemView.findViewById(R.id.itemproduct_edt_masp);
+            nameTextView = itemView.findViewById(R.id.productitem_edt_name);
+            priceTextView = itemView.findViewById(R.id.productitem_edt_price);
+            categoryTextView = itemView.findViewById(R.id.productitem_edt_category);
+            originTextView = itemView.findViewById(R.id.productitem_edt_origin);
+            descriptionTextView = itemView.findViewById(R.id.productitem_edt_description);
             favstatusTextView = itemView.findViewById(R.id.productitem_txt_favstatus);
-            rateTextView = itemView.findViewById(R.id.productitem_txt_rate);
+            rateTextView = itemView.findViewById(R.id.productitem_edt_rate);
             productImageView = itemView.findViewById(R.id.productitem_image);
             deleteButton = itemView.findViewById(R.id.productitem_btn_delete);
+            updateButton=itemView.findViewById(R.id.productitem_btn_update);
+
         }
 
         public void bind(ProductModel product) {
@@ -105,6 +131,64 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
                     .load(product.getImage())
                     .into(productImageView);
 
+
+
+// set dữ liệu
+
+            maspTextView.setOnEditorActionListener((v, actionId, event) -> {
+                if (actionId == EditorInfo.IME_ACTION_DONE && onProductEditListener != null) {
+                    product.setMaSp(v.getText().toString());
+                    onProductEditListener.onProductEdit(getAdapterPosition(), product);
+                }
+                return true;
+            });
+
+            nameTextView.setOnEditorActionListener((v, actionId, event) -> {
+                if (actionId == EditorInfo.IME_ACTION_DONE && onProductEditListener != null) {
+                    product.setName(v.getText().toString());
+                    onProductEditListener.onProductEdit(getAdapterPosition(), product);
+                }
+                return false;
+            });
+            priceTextView.setOnEditorActionListener((v, actionId, event) -> {
+                if (actionId == EditorInfo.IME_ACTION_DONE && onProductEditListener != null) {
+                    double newPrice = Double.parseDouble(v.getText().toString());
+                    product.setPrice(newPrice);
+                    onProductEditListener.onProductEdit(getAdapterPosition(), product);
+                }
+                return false;
+            });
+
+            categoryTextView.setOnEditorActionListener((v, actionId, event) -> {
+                if (actionId == EditorInfo.IME_ACTION_DONE && onProductEditListener != null) {
+                    product.setCategory(v.getText().toString());
+                    onProductEditListener.onProductEdit(getAdapterPosition(), product);
+                }
+                return false;
+            });
+            originTextView.setOnEditorActionListener((v, actionId, event) -> {
+                if (actionId == EditorInfo.IME_ACTION_DONE && onProductEditListener != null) {
+                    product.setOrigin(v.getText().toString());
+                    onProductEditListener.onProductEdit(getAdapterPosition(), product);
+                }
+                return false;
+            });
+
+            descriptionTextView.setOnEditorActionListener((v, actionId, event) -> {
+                if (actionId == EditorInfo.IME_ACTION_DONE && onProductEditListener != null) {
+                    product.setDescription(v.getText().toString());
+                    onProductEditListener.onProductEdit(getAdapterPosition(), product);
+                }
+                return false;
+            });
+
+            rateTextView.setOnEditorActionListener((v, actionId, event) -> {
+                if (actionId == EditorInfo.IME_ACTION_DONE && onProductEditListener != null) {
+                    product.setRate(v.getText().toString());
+                    onProductEditListener.onProductEdit(getAdapterPosition(), product);
+                }
+                return false;
+            });
             // Xử lý sự kiện nút xóa
             deleteButton.setOnClickListener(view -> {
                 int position = getAdapterPosition();
@@ -113,11 +197,18 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
                     deleteProduct(position);
                 }
             });
+            updateButton.setOnClickListener(view -> {
+                if (onProductUpdateListener != null) {
+                    onProductUpdateListener.onProductUpdate(getAdapterPosition(), product);
+                }
+            });
+
         }
 
 
-
     }
+
+
     private void deleteProduct(int position) {
         // Lấy document ID của sản phẩm tại vị trí position
         String maSp = productList.get(position).getMaSp();

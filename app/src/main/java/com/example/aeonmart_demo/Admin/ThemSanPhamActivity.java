@@ -12,6 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.aeonmart_demo.MainActivity;
 import com.example.aeonmart_demo.Model.ProductModel;
 import com.example.aeonmart_demo.R;
 import com.google.android.gms.tasks.Continuation;
@@ -75,7 +76,7 @@ public class ThemSanPhamActivity extends AppCompatActivity {
             public void onClick(View view) {
                 // Call the function to add the product to Firestore
                 addProductToFirestore();
-                Intent intent=new Intent(ThemSanPhamActivity.this,QuanlysanphamActivity.class);
+                Intent intent=new Intent(ThemSanPhamActivity.this, MainActivity.class);
                 startActivity(intent);
             }
         });

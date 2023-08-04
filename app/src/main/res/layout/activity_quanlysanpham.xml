@@ -11,20 +11,17 @@
         android:id="@+id/quanlysanpham_txt_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Quản lý sản phẩm" />
+        android:text="Quản lý sản phẩm"
+        android:textColor="@color/xanh_la_cay_dam"
+        android:textSize="50dp"
+        />
 
     <Button
         android:id="@+id/quanlysanpham_btn_them"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Thêm sản phẩm" />
-
-
-    <Button
-        android:id="@+id/button4"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Sửa sản phẩm" />
+        android:text="Thêm sản phẩm"
+        android:backgroundTint="@color/xanh_la_cay_dam"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_quanlysanpham"

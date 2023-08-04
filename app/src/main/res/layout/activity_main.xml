@@ -5,18 +5,35 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:layout_gravity="top">
 
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/logoaeon"
+        android:layout_gravity="center"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="100dp"
+        android:text="Quản Lý"
+        android:layout_gravity="center"
+        android:textColor="@color/mau_cam_nhat"/>
     <Button
             android:id="@+id/quanlynguoidung_btn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Quản lý nguười dùng" />
+        android:text="Quản lý nguười dùng"
+        android:backgroundTint="@color/xanh_la_cay_dam"
+        />
 
     <Button
         android:id="@+id/quanlysampham_btn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:text="Quản lý sản phẩm" />
+        android:text="Quản lý sản phẩm"
+        android:backgroundTint="@color/xanh_la_cay_dam"/>
 </LinearLayout>
