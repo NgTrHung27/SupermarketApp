@@ -183,7 +183,7 @@ public class HomeActivity extends AppCompatActivity {
         return super.onCreateOptionsMenu(menu);
     }
     void seachData(String s, Context context){
-        Query query = db.collection("ProductModel").orderBy("Name").startAt(s).endAt(s+"\uf8ff");      // \uf8ff match all unicode value start with s
+        Query query = db.collection("Product").orderBy("Name").startAt(s).endAt(s+"\uf8ff");      // \uf8ff match all unicode value start with s
         query.get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
             @Override
             public void onComplete(@NonNull Task<QuerySnapshot> task) {
@@ -219,7 +219,7 @@ public class HomeActivity extends AppCompatActivity {
     }
     @SuppressLint("NotifyDataSetChanged")
     private void loadProductdata() {
-        db.collection("ProductModel").get().addOnCompleteListener(task -> {
+        db.collection("Product").get().addOnCompleteListener(task -> {
             for (QueryDocumentSnapshot documentSnapshot : task.getResult()){
                 String category = documentSnapshot.get("Category").toString();
                 String description = documentSnapshot.get("Description").toString();

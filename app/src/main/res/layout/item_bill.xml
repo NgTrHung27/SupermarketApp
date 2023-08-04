@@ -5,6 +5,7 @@ android:layout_height="wrap_content"
 android:orientation="horizontal"
 android:layout_marginTop="5dp">
 <TextView
+    android:id="@+id/Bill_name"
     android:layout_marginLeft="25sp"
     android:layout_width="95dp"
     android:layout_height="wrap_content"
@@ -12,6 +13,7 @@ android:layout_marginTop="5dp">
     android:textSize="18sp"
     />
 <TextView
+    android:id="@+id/Bill_Price"
     android:layout_width="95dp"
     android:layout_height="wrap_content"
     android:text="200.000"
@@ -21,6 +23,7 @@ android:layout_marginTop="5dp">
     />
 
 <TextView
+    android:id="@+id/Bill_quantity"
     android:layout_width="25dp"
     android:layout_height="wrap_content"
     android:layout_marginLeft="5dp"
@@ -28,6 +31,7 @@ android:layout_marginTop="5dp">
     android:textSize="18sp" />
 
 <TextView
+    android:id="@+id/Bill_ThanhTien"
     android:layout_width="95dp"
     android:layout_height="wrap_content"
     android:text="900.000"
