@@ -66,12 +66,16 @@ public class GioHangActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 List<GioHangModel> gioHangList = adapter.getGioHangList();
-                // Tạo Intent để bắt đầu XacNhanThanhToanActivity và truyền dữ liệu thông qua Intent
+                double totalPrice = calculateTotalPrice();
+
                 Intent intent = new Intent(GioHangActivity.this, XacNhanThanhToanActivity.class);
                 intent.putExtra("gioHangList", (Serializable) gioHangList);
+                intent.putExtra("totalPrice", totalPrice); // Truyền giá trị TotalCart
+
                 startActivity(intent);
             }
         });
+
 
     }
 
