@@ -1,5 +1,6 @@
 package com.example.aeonmart_demo.Adapter;
 
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +14,8 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.example.aeonmart_demo.Admin.CapnhatsanphamActivity;
+import com.example.aeonmart_demo.Admin.QuanlysanphamActivity;
 import com.example.aeonmart_demo.Model.ProductModel;
 import com.example.aeonmart_demo.R;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -57,6 +60,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
         ProductModel product = productList.get(position);
         holder.bind(product);
 
+
     }
 
     @Override
@@ -86,13 +90,13 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
 
     public class ProductViewHolder extends RecyclerView.ViewHolder {
         private TextView maspTextView;
-        private EditText nameTextView;
-        private EditText priceTextView;
-        private EditText categoryTextView;
-        private EditText originTextView;
-        private EditText descriptionTextView;
+        private TextView nameTextView;
+        private TextView priceTextView;
+        private TextView categoryTextView;
+        private TextView originTextView;
+        private TextView descriptionTextView;
         private TextView favstatusTextView;
-        private EditText rateTextView;
+        private TextView rateTextView;
         private ImageView productImageView;
         private Button deleteButton;
         private Button updateButton;
@@ -141,16 +145,35 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
                 }
             });
             updateButton.setOnClickListener(view -> {
-                if (onProductUpdateListener != null) {
-                    onProductUpdateListener.onProductUpdate(getAdapterPosition(), product);
+                int position = getAdapterPosition();
+                if (position != RecyclerView.NO_POSITION) {
+                    // Lấy sản phẩm tại vị trí được chọn
+                    ProductModel selectedProduct = productList.get(position);
 
+                    // Gọi hàm để mở hoạt động cập nhật sản phẩm
+                    updateProduct(selectedProduct);
                 }
             });
+
 
         }
 
 
     }
+    private void updateProduct(ProductModel product) {
+        Intent updateIntent = new Intent(context, CapnhatsanphamActivity.class);
+        updateIntent.putExtra("Category", product.getCategory());
+        updateIntent.putExtra("Description", product.getDescription());
+        updateIntent.putExtra("Image", product.getImage());
+        updateIntent.putExtra("Masp", product.getMaSp());
+        updateIntent.putExtra("Name", product.getName());
+        updateIntent.putExtra("Origin", product.getOrigin());
+        updateIntent.putExtra("Price", product.getPrice());
+        updateIntent.putExtra("Rate", product.getRate());
+        updateIntent.putExtra("FavStatus", product.isFavStatus());
+        context.startActivity(updateIntent);
+    }
+
 
 
     private void deleteProduct(int position) {

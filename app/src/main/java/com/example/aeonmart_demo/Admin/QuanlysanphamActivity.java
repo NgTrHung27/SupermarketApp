@@ -36,7 +36,6 @@ public class QuanlysanphamActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quanlysanpham);
-
         db = FirebaseFirestore.getInstance();
         productList = new ArrayList<>();
         productAdapter = new ProductAdapter(productList, this); // Pass the context
@@ -67,38 +66,13 @@ public class QuanlysanphamActivity extends AppCompatActivity {
         productAdapter.setOnProductUpdateListener(new ProductAdapter.OnProductUpdateListener() {
             @Override
             public void onProductUpdate(int position, ProductModel product) {
-                // Mở màn hình cập nhật sản phẩm với thông tin đã có
-                updateProductInFirestore(position,product);
+                Intent intent=new Intent(QuanlysanphamActivity.this,CapnhatsanphamActivity.class);
+                startActivity(intent);
             }
         });
         fetchProductsFromFirestore();
     }
     // Xử lý kết quả từ màn hình cập nhật sản phẩm
-    private void updateProductInFirestore(int position, ProductModel updatedProduct) {
-
-        String maSp = productList.get(position).getMaSp();
-        Map<String, Object> updatedData = new HashMap<>();
-        updatedData.put("Name", updatedProduct.getName());
-        updatedData.put("Price", updatedProduct.getPrice());
-        updatedData.put("Category", updatedProduct.getCategory());
-        updatedData.put("Origin", updatedProduct.getOrigin());
-        updatedData.put("Description", updatedProduct.getDescription());
-        updatedData.put("FavStatus", updatedProduct.isFavStatus());
-        updatedData.put("Rate", updatedProduct.getRate());
-
-        db.collection("Product")
-                .document(maSp)
-                .update(updatedData)
-                .addOnSuccessListener(aVoid -> {
-                    Toast.makeText(QuanlysanphamActivity.this, "Đã cập nhật sản phẩm", Toast.LENGTH_SHORT).show();
-                    // Cập nhật dữ liệu trong danh sách và RecyclerView
-                    productList.set(position, updatedProduct);
-                    productAdapter.notifyItemChanged(position);
-                })
-                .addOnFailureListener(e -> {
-                    Toast.makeText(QuanlysanphamActivity.this, "Lỗi khi cập nhật sản phẩm: " + e.getMessage(), Toast.LENGTH_SHORT).show();
-                });
-    }
 
     private void fetchProductsFromFirestore() {
 
@@ -110,7 +84,6 @@ public class QuanlysanphamActivity extends AppCompatActivity {
                         for (DocumentSnapshot document : task.getResult()) {
                             ProductModel product = document.toObject(ProductModel.class);
                             productList.add(product);
-
                         }
                         productAdapter.notifyDataSetChanged();
 
