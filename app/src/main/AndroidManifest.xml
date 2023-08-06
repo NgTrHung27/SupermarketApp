@@ -60,6 +60,9 @@
             android:name=".Activity.Detail_Profile_Activity"
             android:exported="true" />
         <activity
+            android:name=".Detail_HoSo_Activity.ProfileActivity"
+            android:exported="true" />
+        <activity
             android:name=".Activity.SignInActivity"
             android:exported="true" >
             <intent-filter>

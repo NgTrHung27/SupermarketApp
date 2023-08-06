@@ -19,11 +19,13 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.aeonmart_demo.Adapter.HomeAdapter;
 import com.example.aeonmart_demo.Adapter.SlideAdapter;
+import com.example.aeonmart_demo.Detail_HoSo_Activity.ProfileActivity;
 import com.example.aeonmart_demo.Model.HomeModel;
 import com.example.aeonmart_demo.Model.SlideViewModel;
 import com.example.aeonmart_demo.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
@@ -55,6 +57,25 @@ public class HomeActivity extends AppCompatActivity {
         getSupportActionBar().setTitle(" Trang chủ");
         getSupportActionBar().setLogo(R.drawable.aeonminilogo);
         getSupportActionBar().setDisplayUseLogoEnabled(true);
+
+
+        BottomNavigationView bottomNav = findViewById(R.id.Home_bottomnav);
+        bottomNav.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                int itemId = item.getItemId();
+                if (itemId == R.id.navHome) {
+                } else if (itemId == R.id.navVoucher) {
+                    startActivity(new Intent(HomeActivity.this, VoucherListActivity.class));
+                    finish();
+                } else if (itemId == R.id.navUser) {
+                    startActivity(new Intent(HomeActivity.this, ProfileActivity.class));
+                    finish();
+                }
+                return true;
+            }
+        });
+        bottomNav.setSelectedItemId(R.id.navHome);
 
         FirebaseStorage storage = FirebaseStorage.getInstance();
         storageRef = storage.getReference();

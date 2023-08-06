@@ -250,7 +250,7 @@
         </ScrollView>
     </LinearLayout>
     <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/VoucList_bottomnav"
+        android:id="@+id/Home_bottomnav"
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:background="@color/xanh_la_cay_dam"
