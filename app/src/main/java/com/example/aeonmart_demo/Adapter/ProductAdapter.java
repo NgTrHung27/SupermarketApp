@@ -132,63 +132,6 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
                     .into(productImageView);
 
 
-
-// set dữ liệu
-
-            maspTextView.setOnEditorActionListener((v, actionId, event) -> {
-                if (actionId == EditorInfo.IME_ACTION_DONE && onProductEditListener != null) {
-                    product.setMaSp(v.getText().toString());
-                    onProductEditListener.onProductEdit(getAdapterPosition(), product);
-                }
-                return true;
-            });
-
-            nameTextView.setOnEditorActionListener((v, actionId, event) -> {
-                if (actionId == EditorInfo.IME_ACTION_DONE && onProductEditListener != null) {
-                    product.setName(v.getText().toString());
-                    onProductEditListener.onProductEdit(getAdapterPosition(), product);
-                }
-                return false;
-            });
-            priceTextView.setOnEditorActionListener((v, actionId, event) -> {
-                if (actionId == EditorInfo.IME_ACTION_DONE && onProductEditListener != null) {
-                    double newPrice = Double.parseDouble(v.getText().toString());
-                    product.setPrice(newPrice);
-                    onProductEditListener.onProductEdit(getAdapterPosition(), product);
-                }
-                return false;
-            });
-
-            categoryTextView.setOnEditorActionListener((v, actionId, event) -> {
-                if (actionId == EditorInfo.IME_ACTION_DONE && onProductEditListener != null) {
-                    product.setCategory(v.getText().toString());
-                    onProductEditListener.onProductEdit(getAdapterPosition(), product);
-                }
-                return false;
-            });
-            originTextView.setOnEditorActionListener((v, actionId, event) -> {
-                if (actionId == EditorInfo.IME_ACTION_DONE && onProductEditListener != null) {
-                    product.setOrigin(v.getText().toString());
-                    onProductEditListener.onProductEdit(getAdapterPosition(), product);
-                }
-                return false;
-            });
-
-            descriptionTextView.setOnEditorActionListener((v, actionId, event) -> {
-                if (actionId == EditorInfo.IME_ACTION_DONE && onProductEditListener != null) {
-                    product.setDescription(v.getText().toString());
-                    onProductEditListener.onProductEdit(getAdapterPosition(), product);
-                }
-                return false;
-            });
-
-            rateTextView.setOnEditorActionListener((v, actionId, event) -> {
-                if (actionId == EditorInfo.IME_ACTION_DONE && onProductEditListener != null) {
-                    product.setRate(v.getText().toString());
-                    onProductEditListener.onProductEdit(getAdapterPosition(), product);
-                }
-                return false;
-            });
             // Xử lý sự kiện nút xóa
             deleteButton.setOnClickListener(view -> {
                 int position = getAdapterPosition();
@@ -200,6 +143,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
             updateButton.setOnClickListener(view -> {
                 if (onProductUpdateListener != null) {
                     onProductUpdateListener.onProductUpdate(getAdapterPosition(), product);
+
                 }
             });
 
