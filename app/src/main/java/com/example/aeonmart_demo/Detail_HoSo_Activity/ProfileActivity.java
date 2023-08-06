@@ -48,6 +48,10 @@ Button btn_profile_xemthongtin;
         btn_profile_xemthongtin=findViewById(R.id.profile_BTN_xemthongtin);
         TextView logoutTextView = findViewById(R.id.profile_Tv_DX);
         TextView deleteAccountTextView = findViewById(R.id.profile_Tv_XTK);
+        TextView tvRules = findViewById(R.id.profile_Tv_DK);
+        TextView tvInfor = findViewById(R.id.profile_Tv_Lienlac);
+        TextView tvPolicy = findViewById(R.id.profile_Tv_QD);
+        TextView changePassTextView = findViewById(R.id.profile_Tv_DMK);
         deleteAccountTextView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -62,7 +66,29 @@ Button btn_profile_xemthongtin;
                 logoutAndNavigateToSignIn();
             }
         });
-        TextView changePassTextView = findViewById(R.id.profile_Tv_DMK);
+        tvPolicy.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // Chuyển đến RulesActivity khi TextView được nhấn
+                navigateToPolicy();
+            }
+        });
+        tvInfor.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // Chuyển đến RulesActivity khi TextView được nhấn
+                navigateToInfor();
+            }
+        });
+        tvRules.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // Chuyển đến RulesActivity khi TextView được nhấn
+                navigateToRules();
+            }
+        });
+
+
         changePassTextView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -100,6 +126,18 @@ Button btn_profile_xemthongtin;
     }
     private void navigateToDeleteAccount() {
         Intent intent = new Intent(this, DeleteAccountActivity.class);
+        startActivity(intent);
+    }
+    private void navigateToRules() {
+        Intent intent = new Intent(this, RulesActivity.class);
+        startActivity(intent);
+    }
+    private void navigateToInfor() {
+        Intent intent = new Intent(this, InforActivity.class);
+        startActivity(intent);
+    }
+    private void navigateToPolicy() {
+        Intent intent = new Intent(this, PolicyActivity.class);
         startActivity(intent);
     }
 }

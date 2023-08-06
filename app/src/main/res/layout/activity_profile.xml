@@ -109,7 +109,8 @@
                 android:padding="5dp"
                 android:text="Điều khoản"
                 android:textSize="20dp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+               />
 
             <TextView
                 android:id="@+id/profile_Tv_Lienlac"

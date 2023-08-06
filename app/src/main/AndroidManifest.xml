@@ -61,6 +61,7 @@
         <activity
             android:name=".Activity.Detail_Profile_Activity"
             android:exported="true" />
+
         <activity
             android:name=".Detail_HoSo_Activity.ProfileActivity"
             android:exported="true" />
@@ -86,6 +87,14 @@
             android:name=".Activity.TraHang_Activity"
             android:exported="true" />
         <activity android:name=".Admin.ThemSanPhamActivity" />
+        <activity android:name=".Detail_HoSo_Activity.DeleteAccountActivity"
+            android:exported="true">
+        </activity>
+        <activity android:name=".Detail_HoSo_Activity.ChangePassActivity"
+            android:exported="true"></activity>
+        <activity android:name=".Detail_HoSo_Activity.RulesActivity"></activity>
+        <activity android:name=".Detail_HoSo_Activity.InforActivity"></activity>
+        <activity android:name=".Detail_HoSo_Activity.PolicyActivity"></activity>
     </application>
 
 </manifest>
