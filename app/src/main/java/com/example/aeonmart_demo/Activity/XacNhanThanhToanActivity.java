@@ -13,6 +13,7 @@ import android.widget.ImageSwitcher;
 import android.widget.TextView;
 
 import com.example.aeonmart_demo.Adapter.GioHangAdapter;
+import com.example.aeonmart_demo.Adapter.XacNhanThanhToanAdapter;
 import com.example.aeonmart_demo.Model.GioHangModel;
 import com.example.aeonmart_demo.Model.HomeModel;
 import com.example.aeonmart_demo.Model.User;
@@ -62,15 +63,20 @@ public class XacNhanThanhToanActivity extends AppCompatActivity {
         XacNhan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(XacNhanThanhToanActivity.this, BillActivity.class);
-//                i.putExtra("gioHangList", (Serializable) gioHangList);
-                startActivity(i);
+                List<GioHangModel> gioHangList = adapter.getGioHangList();
+                double totalPrice = calculateTotalPrice();
+                Intent intent = new Intent(XacNhanThanhToanActivity.this, BillActivity.class);
+                intent.putExtra("gioHangList", (Serializable) gioHangList);
+                intent.putExtra("totalPrice", totalPrice); // Truyền giá trị TotalCart
+                startActivity(intent);
             }
         });
 
         // Nhận giá trị totalPrice từ Intent và gán cho XNTT_tvGia
         double totalPrice = getIntent().getDoubleExtra("totalPrice", 0.0);
         tvTongGia.setText(String.format("%.0fĐ", totalPrice));
+
+
 
         // Khởi tạo ImageSwitcher và bắt sự kiện khi người dùng chọn
         imgMoMo = findViewById(R.id.XNTT_imgMoMo);
@@ -96,6 +102,13 @@ public class XacNhanThanhToanActivity extends AppCompatActivity {
                 selectTechcombank();
             }
         });
+    }
+    private double calculateTotalPrice() {
+        double totalPrice = 0.0;
+        for (GioHangModel gioHangModel : gioHangList) {
+            totalPrice += gioHangModel.getProductPrice() * gioHangModel.getProductQuantity();
+        }
+        return totalPrice;
     }
 
     private void selectMoMo() {
