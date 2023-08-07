@@ -75,8 +75,6 @@ public class GioHangActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
-
     }
 
     private double calculateTotalPrice() {

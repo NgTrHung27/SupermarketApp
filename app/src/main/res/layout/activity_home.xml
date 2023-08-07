@@ -57,10 +57,10 @@
                     android:layout_marginTop="15dp"
                     android:id="@+id/Highlight1">
                     <ImageButton
-                        android:id="@+id/IB_Voucher"
+                        android:id="@+id/cart"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:src="@drawable/baseline_card_giftcard_24"
+                        android:src="@drawable/baseline_shopping_cart_24"
                         android:background="@drawable/round_background"
                         android:layout_marginLeft="0dp"/>
                     <ImageButton
@@ -84,7 +84,6 @@
                         android:src="@drawable/baseline_move_up_24"
                         android:background="@drawable/round_background"
                         android:layout_marginLeft="40dp"/>
-
                 </LinearLayout>
 
                 <LinearLayout
@@ -96,7 +95,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="E-Voucher"
+                        android:text="Cart"
                         android:layout_marginLeft="0dp"/>
                     <TextView
                         android:layout_width="wrap_content"
@@ -143,6 +142,7 @@
                         android:src="@drawable/baseline_volunteer_activism_24"
                         android:background="@drawable/round_background"
                         android:layout_marginLeft="40dp"/>
+
                     <ImageButton
                         android:id="@+id/IB_Noti"
                         android:layout_width="wrap_content"
@@ -150,7 +150,6 @@
                         android:src="@drawable/baseline_notifications_none_24"
                         android:background="@drawable/round_background"
                         android:layout_marginLeft="40dp"/>
-
                 </LinearLayout>
 
                 <LinearLayout
@@ -199,6 +198,7 @@
                     app:layout_constraintTop_toBottomOf="@id/Home_Text_DMSP">
 
                     <ImageButton
+
                         android:layout_width="150px"
                         android:layout_height="250px"
                         android:layout_marginLeft="0dp"

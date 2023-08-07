@@ -47,6 +47,7 @@ public class HomeActivity extends AppCompatActivity {
     ArrayList<SlideViewModel> slideViewModels;
     SlideAdapter slideViewAdapter;
     RecyclerView rv_Home;
+    ImageButton cart;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -103,8 +104,8 @@ public class HomeActivity extends AppCompatActivity {
         loadSlider();
         loadProductdata();
 
-        ImageButton voucherbt, tichxubt,tintucbt,doitrabt,danhgiabt, yeuthichbt, vongquaybt, thongbaobt;
-        voucherbt   = (ImageButton) findViewById(R.id.IB_Voucher);
+        ImageButton cart, tichxubt,tintucbt,doitrabt,danhgiabt, yeuthichbt, vongquaybt, thongbaobt;
+        cart         = (ImageButton) findViewById(R.id.cart);
         tichxubt    = (ImageButton) findViewById(R.id.IB_Coin) ;
         tintucbt    = (ImageButton) findViewById(R.id.IB_News);
         doitrabt    = (ImageButton) findViewById(R.id.IB_Return);
@@ -113,10 +114,10 @@ public class HomeActivity extends AppCompatActivity {
         vongquaybt  = (ImageButton) findViewById(R.id.IB_Lucky);
         thongbaobt  = (ImageButton) findViewById(R.id.IB_Noti);
 
-        voucherbt.setOnClickListener(new View.OnClickListener() {
+        cart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new  Intent(HomeActivity.this, VoucherListActivity.class);
+                Intent intent = new  Intent(HomeActivity.this, GioHangActivity.class);
                 startActivity(intent);
             }
         });
