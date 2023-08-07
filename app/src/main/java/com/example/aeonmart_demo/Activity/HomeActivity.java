@@ -3,7 +3,11 @@ package com.example.aeonmart_demo.Activity;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
+import android.text.Spannable;
+import android.text.SpannableString;
+import android.text.style.ForegroundColorSpan;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -57,8 +61,12 @@ public class HomeActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle(" Trang chủ");
         getSupportActionBar().setLogo(R.drawable.aeonminilogo);
-        getSupportActionBar().setDisplayUseLogoEnabled(true);
 
+        SpannableString spannableTitle = new SpannableString(" Trang chủ");
+        spannableTitle.setSpan(new ForegroundColorSpan(Color.BLACK), 0, spannableTitle.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+        getSupportActionBar().setTitle(spannableTitle);
+
+        getSupportActionBar().setDisplayUseLogoEnabled(true);
 
         BottomNavigationView bottomNav = findViewById(R.id.Home_bottomnav);
         bottomNav.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -77,7 +85,6 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
         bottomNav.setSelectedItemId(R.id.navHome);
-
         FirebaseStorage storage = FirebaseStorage.getInstance();
         storageRef = storage.getReference();
         FirebaseApp.initializeApp(this);
