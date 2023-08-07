@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -12,6 +13,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.aeonmart_demo.Adapter.GioHangAdapter;
+import com.example.aeonmart_demo.Model.BillModel;
 import com.example.aeonmart_demo.Model.GioHangModel;
 import com.example.aeonmart_demo.R;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -31,16 +33,19 @@ public class GioHangActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private GioHangAdapter adapter;
     private List<GioHangModel> gioHangList;
-    private TextView tvTongGia,TextGioHang; // Add this TextView
+    private LinearLayout Itemlinear;
+    private TextView tvTongGia,ThanhTien; // Add this TextView
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gio_hang);
 
+//        Itemlinear=findViewById(R.id.LN_itemdonhang);
         db = FirebaseFirestore.getInstance();
         gioHangList = new ArrayList<>();
         recyclerView = findViewById(R.id.GH_rcv);
         tvTongGia = findViewById(R.id.TotalCart); // Initialize the TextView
+
 
         // Set up RecyclerView
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -59,7 +64,6 @@ public class GioHangActivity extends AppCompatActivity {
                 tvTongGia.setText(String.format("%sĐ", totalPrice));
             }
         });
-
 
         Button btnThanhToan = findViewById(R.id.GH_btnThanhToan);
         btnThanhToan.setOnClickListener(new View.OnClickListener() {
@@ -84,7 +88,6 @@ public class GioHangActivity extends AppCompatActivity {
         }
         return totalPrice;
     }
-
     private void loadDataFromFirestore() {
         CollectionReference gioHangRef = db.collection("cart");
 

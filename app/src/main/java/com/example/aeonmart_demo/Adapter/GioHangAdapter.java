@@ -11,6 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.example.aeonmart_demo.Activity.GioHangActivity;
 import com.example.aeonmart_demo.Model.GioHangModel;
 import com.example.aeonmart_demo.R;
 
@@ -52,14 +53,16 @@ public class GioHangAdapter extends RecyclerView.Adapter<GioHangAdapter.GioHangV
         // Load product image using Glide
         Glide.with(context).load(gioHangModel.getProductImgUrl()).into(holder.itemProductImg);
 
-        // Calculate total price for each item (price * quantity)
-        double totalPrice = gioHangModel.getProductPrice() * gioHangModel.getProductQuantity();
+        // Set the product name, price, and quantity in the item view
         holder.itemProductName.setText(gioHangModel.getProductName());
         holder.itemProductPrice.setText(String.format("%sĐ", gioHangModel.getProductPrice()));
         holder.itemProductQuantity.setText(String.format("x%s", gioHangModel.getProductQuantity()));
 
-        // Add more bindings for other product details if needed
+        // Calculate the total price (thành tiền) for each item (quantity * price)
+        double totalPrice = gioHangModel.getProductPrice() * gioHangModel.getProductQuantity();
+        holder.tvThanhTien.setText(String.format("%sĐ", totalPrice));
     }
+
 
     @Override
     public int getItemCount() {
@@ -71,6 +74,7 @@ public class GioHangAdapter extends RecyclerView.Adapter<GioHangAdapter.GioHangV
         TextView itemProductName;
         TextView itemProductPrice;
         TextView itemProductQuantity;
+        TextView tvThanhTien;
 
         public GioHangViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -78,6 +82,7 @@ public class GioHangAdapter extends RecyclerView.Adapter<GioHangAdapter.GioHangV
             itemProductName = itemView.findViewById(R.id.shop_tvThongTin);
             itemProductPrice = itemView.findViewById(R.id.shop_tvGia);
             itemProductQuantity = itemView.findViewById(R.id.Shop_tvSL);
+            tvThanhTien = itemView.findViewById(R.id.Shop_ThanhTien);
         }
     }
 }

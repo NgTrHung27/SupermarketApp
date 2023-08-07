@@ -36,7 +36,9 @@
             android:exported="false" />
         <activity
             android:name=".Activity.HomeActivity"
-            android:exported="true"></activity>
+            android:exported="true">
+
+        </activity>
         <activity
             android:name=".Activity.ChinhSuaHoSoActivity"
             android:exported="true" />
@@ -95,6 +97,11 @@
         <activity android:name=".Detail_HoSo_Activity.RulesActivity"></activity>
         <activity android:name=".Detail_HoSo_Activity.InforActivity"></activity>
         <activity android:name=".Detail_HoSo_Activity.PolicyActivity"></activity>
+        <activity android:name=".Activity.BillActivity"
+            android:exported="true">
+
+        </activity>
+
     </application>
 
 </manifest>
