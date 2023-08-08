@@ -4,8 +4,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -17,6 +19,7 @@ import com.example.aeonmart_demo.Model.BillModel;
 import com.example.aeonmart_demo.Model.GioHangModel;
 import com.example.aeonmart_demo.R;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -77,6 +80,32 @@ public class GioHangActivity extends AppCompatActivity {
                 intent.putExtra("totalPrice", totalPrice); // Truyền giá trị TotalCart
 
                 startActivity(intent);
+            }
+        });
+        ImageButton btnClearFav = findViewById(R.id.btn_Clear_cart);
+        btnClearFav.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                db.collection("cart").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        for (QueryDocumentSnapshot documentSnapshot : task.getResult()){
+                            String documentId = documentSnapshot.getId();
+                            db.collection("cart").document(documentId).delete().addOnCompleteListener(new OnCompleteListener<Void>() {
+                                @Override
+                                public void onComplete(@NonNull Task<Void> task) {
+                                    Toast.makeText(GioHangActivity.this, "Delete Success!!!", Toast.LENGTH_SHORT).show();
+                                }
+                            });
+                        }
+                        gioHangList.clear(); // Đưa ra ngoài vòng lặp để xoá toàn bộ dữ liệu yêu thích trước khi tải lại từ Firestore
+                    }
+                }).addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Toast.makeText(GioHangActivity.this, "ERROR", Toast.LENGTH_SHORT).show();
+                    }
+                });
             }
         });
     }
